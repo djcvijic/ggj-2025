@@ -5,6 +5,9 @@ public class App : MonoSingleton<App>
     public GameSettings GameSettings;
     
     public Player playerPrefab;
+
+    [SerializeField] private BubblefishSpawner bubblefishSpawner;
+
     [HideInInspector]
     public Player player;
     

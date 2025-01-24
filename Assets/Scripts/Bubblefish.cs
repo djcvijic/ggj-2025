@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Bubblefish : MonoBehaviour
 {
-    public event Action Popped;
-
     [SerializeField] private SpriteRenderer bubble;
     [SerializeField] private SpriteRenderer fish;
     [SerializeField] private Sprite happySprite;
+
+    public event Action Popped;
 
     private bool _popped;
 
@@ -18,10 +18,18 @@ public class Bubblefish : MonoBehaviour
 
         var player = other.GetComponent<Player>();
         if (player != null)
-        {
-            bubble.gameObject.SetActive(false);
-            fish.sprite = happySprite;
-            Popped?.Invoke();
-        }
+            Pop();
+    }
+
+    private void Pop()
+    {
+        bubble.gameObject.SetActive(false);
+        fish.sprite = happySprite;
+        Popped?.Invoke();
+    }
+
+    private void OnDestroy()
+    {
+        Popped = null;
     }
 }
