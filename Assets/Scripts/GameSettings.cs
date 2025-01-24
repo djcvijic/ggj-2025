@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Game Settings")]
 public class GameSettings : ScriptableObject
@@ -7,8 +8,11 @@ public class GameSettings : ScriptableObject
     public float maxSpeed = 8f;
     public float friction = 10f;
 
-    [field: SerializeField] public float SecondsBetweenSpawns { get; private set; } = 1f;
-    public float dashSpeed = 20f;
-    public float dashDuration = 0.15f;
+    public float dashSpeed = 10f;
+    public float dashDuration = 0.25f;
     public float dashCooldown = 2f;
+    public float dashDeceleration = 0.05f;
+    
+    [field: SerializeField] public float SecondsBetweenSpawns { get; private set; } = 1f;
+
 }
