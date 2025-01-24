@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BubblefishSpawner : MonoBehaviour
 {
-    [SerializeField] private Bubblefish bubblefishPrefab;
+    [SerializeField] private List<Bubblefish> bubblefishPrefabs;
 }

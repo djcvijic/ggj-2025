@@ -168,7 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6cdae13f38174d558bea2ea1dbdb1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblefishPrefab: {fileID: 662024786317766090, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+  bubblefishPrefabs:
+  - {fileID: 662024786317766090, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
 --- !u!1 &1021419907
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7235786262687185845, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
       propertyPath: m_Name
-      value: Bubblefish
+      value: Bubblefish1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
