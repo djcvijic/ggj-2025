@@ -8,8 +8,10 @@ public class InertialMovement
     public float MaxSpeed => App.Instance.GameSettings.maxSpeed;
     public float Friction => App.Instance.GameSettings.friction;
 
-    public Vector3 CalculateNewPosition(Vector3 currentPosition, Vector2 input, float deltaTime)
+    public Vector3 CalculateNewPosition(Vector3 currentPosition, float deltaTime)
     {
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        
         if (input != Vector2.zero)
         {
             Vector3 force = (Vector3)input * Acceleration;

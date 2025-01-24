@@ -17,7 +17,7 @@ public class DashMovement
         _dashTimer = DashDuration;
     }
 
-    public Vector3 UpdateDash(Vector3 currentPosition, float deltaTime)
+    public Vector3 CalculateNewPosition(Vector3 currentPosition, float deltaTime)
     {
         if (_dashTimer > 0)
         {

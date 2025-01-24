@@ -17,8 +17,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        playerMovement.UpdatePosition();
-        playerMovement.HandleDash();
-
+        playerMovement.Update();
     }
 }

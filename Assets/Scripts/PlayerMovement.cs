@@ -25,30 +25,31 @@ public class PlayerMovement
         _dashMovement = new DashMovement();
     }
 
-    public void UpdatePosition()
+    public void Update()
     {
-        if (_dashMovement.IsDashing)
-        {
-            Position = _dashMovement.UpdateDash(Position, Time.deltaTime);
-        }
-        else
-        {
-            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-            Vector3 newPosition = _inertialMovement.CalculateNewPosition(Position, input, Time.deltaTime);
-            Position = newPosition;
-        }
+        CheckForDash();
+        UpdatePosition();
     }
 
-    public void HandleDash()
+    private void UpdatePosition()
     {
-        if (Input.GetMouseButtonDown(0)) 
-        {
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition = _camera.ScreenToWorldPoint(mousePosition);
-            mousePosition.z = 0;
+        Vector3  newPosition = _dashMovement.IsDashing ? 
+            _dashMovement.CalculateNewPosition(Position, Time.deltaTime) : 
+            _inertialMovement.CalculateNewPosition(Position, Time.deltaTime);
 
-            _inertialMovement.StopMovement();
-            _dashMovement.StartDash(Position, mousePosition);
-        }
+        Position = newPosition;
+    }
+
+    private void CheckForDash()
+    {
+        if (!Input.GetMouseButtonDown(0)) 
+            return;
+        
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = _camera.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = 0;
+
+        _inertialMovement.StopMovement();
+        _dashMovement.StartDash(Position, mousePosition);
     }
 }
