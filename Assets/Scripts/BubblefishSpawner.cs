@@ -47,8 +47,11 @@ public class BubblefishSpawner : MonoBehaviour
 
     private IEnumerator SpawnPeriodically(WaitForSeconds waitForSeconds)
     {
-        yield return waitForSeconds;
-        SpawnBubbleFish();
+        while (true)
+        {
+            yield return waitForSeconds;
+            SpawnBubbleFish();
+        }
     }
 
     private void SpawnBubbleFish()
