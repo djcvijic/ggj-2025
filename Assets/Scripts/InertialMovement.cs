@@ -34,4 +34,10 @@ public class InertialMovement
 
         return currentPosition + _velocity * deltaTime;
     }
+
+    public void StopMovement()
+    {
+        _velocity = Vector3.zero;
+    }
+    
 }
