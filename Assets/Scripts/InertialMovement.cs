@@ -4,15 +4,16 @@ public class InertialMovement
 {
     private Vector3 _velocity = Vector3.zero;
 
-    public float BaseAcceleration => App.Instance.GameSettings.acceleration;
+    public float Acceleration => App.Instance.GameSettings.acceleration;
     public float MaxSpeed => App.Instance.GameSettings.maxSpeed;
-    public float Friction => App.Instance.GameSettings.acceleration;
+    public float Friction => App.Instance.GameSettings.friction;
 
     public Vector3 CalculateNewPosition(Vector3 currentPosition, Vector2 input, float deltaTime)
     {
         if (input != Vector2.zero)
         {
-            _velocity += (Vector3)input * (BaseAcceleration * deltaTime);
+            Vector3 force = (Vector3)input * Acceleration;
+            _velocity += force * deltaTime;
         }
 
         if (_velocity.magnitude > 0)
