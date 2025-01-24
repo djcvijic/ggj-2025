@@ -3,8 +3,10 @@
 public class PlayerMovement
 {
     private Player _player;
+    
     private InertialMovement _inertialMovement;
     private DashMovement _dashMovement;
+    
     private Transform _transform;
     private Camera _camera;
 
@@ -20,7 +22,7 @@ public class PlayerMovement
         _player = player;
         _transform = _player.transform;
         _inertialMovement = new InertialMovement();
-        _dashMovement = new DashMovement(20f, 0.2f);
+        _dashMovement = new DashMovement();
     }
 
     public void UpdatePosition()
