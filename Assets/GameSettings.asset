@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4e5683fc4647dbba7403883f3821a5, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  acceleration: 5
-  maxSpeed: 10
-  friction: 3
+  acceleration: 30
+  maxSpeed: 8
+  friction: 10
