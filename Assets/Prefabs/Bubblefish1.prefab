@@ -290,6 +290,7 @@ MonoBehaviour:
   bubble: {fileID: 2844964999718364187}
   fish: {fileID: 9191923293674057150}
   happySprite: {fileID: 21300000, guid: 1ee49e8938f914c14b802a00cc5fa9eb, type: 3}
+  sadSprite: {fileID: 21300000, guid: d5e2ce72928e447fbb1dfd1a1466ae83, type: 3}
 --- !u!50 &2097432814364576413
 Rigidbody2D:
   serializedVersion: 4

@@ -219,6 +219,7 @@ MonoBehaviour:
   bubblefishPrefabs:
   - {fileID: 662024786317766090, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
   - {fileID: 2760251346637163184, guid: 2639d5e8bb7af4c9aad3db9039c65b8a, type: 3}
+  - {fileID: 2760251346637163184, guid: fcb9fdecc0ef24258aadbe4f57d23b81, type: 3}
   maxX: 28
   maxY: 32
 --- !u!1 &1021419907

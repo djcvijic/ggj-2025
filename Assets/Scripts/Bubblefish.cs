@@ -6,6 +6,7 @@ public class Bubblefish : MonoBehaviour
     [SerializeField] private SpriteRenderer bubble;
     [SerializeField] private SpriteRenderer fish;
     [SerializeField] private Sprite happySprite;
+    [SerializeField] private Sprite sadSprite;
 
     public event Action Popped;
 

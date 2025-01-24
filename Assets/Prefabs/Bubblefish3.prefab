@@ -11,11 +11,11 @@ PrefabInstance:
     - target: {fileID: 662024786317766090, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
       propertyPath: sadSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2fbabc51ab5604e4f9b32769f3241271, type: 3}
+      objectReference: {fileID: 21300000, guid: 5443028e32c42498a9acb6f2fa7085b3, type: 3}
     - target: {fileID: 662024786317766090, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
       propertyPath: happySprite
       value: 
-      objectReference: {fileID: 21300000, guid: 19304529ad8d54c9c9cd5a829d7f87b5, type: 3}
+      objectReference: {fileID: 21300000, guid: 42376087fd72e4da0b7802a997d2e9c6, type: 3}
     - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -58,12 +58,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7235786262687185845, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
       propertyPath: m_Name
-      value: Bubblefish2
+      value: Bubblefish3
       objectReference: {fileID: 0}
     - target: {fileID: 9191923293674057150, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2fbabc51ab5604e4f9b32769f3241271, type: 3}
+      objectReference: {fileID: 21300000, guid: 5443028e32c42498a9acb6f2fa7085b3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
