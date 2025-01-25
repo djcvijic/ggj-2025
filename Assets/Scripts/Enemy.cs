@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     // TODO check if player has collected enough bubblefish, if not damage player instead
     private void CollideWithPlayer()
     {
+        Debug.Log("Collided with enemy: " + gameObject.name);
         _remainingHealth--;
     }
 
