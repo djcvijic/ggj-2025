@@ -7,6 +7,7 @@ public class App : MonoSingleton<App>
 
     [SerializeField] private Player playerPrefab;
     [SerializeField] private BubblefishManager bubblefishManager;
+    [SerializeField] private AppCanvas appCanvas;
 
     private CameraFollow _cameraFollow;
     private Player player;
@@ -16,6 +17,8 @@ public class App : MonoSingleton<App>
         base.Awake();
 
         EventsNotifier = new EventsNotifier();
+        
+        appCanvas.Initialize();
         
         player = Instantiate(playerPrefab);
         _cameraFollow = CameraFollow.InstantiateCameraFollowObj().Initialize(player.transform, player.GetComponent<Rigidbody2D>());

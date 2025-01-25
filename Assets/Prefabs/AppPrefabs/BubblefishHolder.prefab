@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblefishSpawner: {fileID: 8525815234646245263}
+  bubblefishCounter: {fileID: 0}
 --- !u!1001 &8798825647051184906
 PrefabInstance:
   m_ObjectHideFlags: 0
