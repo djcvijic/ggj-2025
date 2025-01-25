@@ -4,12 +4,19 @@ public class DashMovement
 {
     private Vector3 _dashDirection;
     private Vector3 _targetPosition;
+
+    private Rigidbody2D _rb;
     private float DashSpeed => App.Instance.GameSettings.dashSpeed;
     private float DashDuration => App.Instance.GameSettings.dashDuration;
     private float DecelerationFactor => App.Instance.GameSettings.dashDeceleration;
 
     private float _dashTimer;
     private float _currentSpeed;
+
+    public DashMovement(Rigidbody2D rb)
+    {
+        _rb = rb;
+    }
 
     public bool IsDashing { get; private set; }
 
