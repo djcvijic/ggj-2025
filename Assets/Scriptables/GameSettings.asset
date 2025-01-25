@@ -16,13 +16,88 @@ MonoBehaviour:
   cameraFollowSpeed: 2
   minCameraOffsetDistance: 2
   maxCameraOffsetDistance: 5
-  baseCameraDistance: 5
+  minCameraDistance: 2.5
+  maxCameraDistance: 12
+  cameraDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   acceleration: 350
   maxSpeed: 20
   friction: 4.5
-  dashSpeed: 2000
+  minDashSpeed: 2000
+  maxDashSpeed: 4000
+  dashSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   dashDuration: 0.1
-  dashCooldown: 2
+  minDashCooldown: 2
+  maxDashCooldown: 4
+  dashCooldownCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   <SpawnLayers>k__BackingField:
   - <MinY>k__BackingField: 42
     <MaxY>k__BackingField: 64
@@ -36,3 +111,5 @@ MonoBehaviour:
   <FollowSpeed>k__BackingField: 1
   <SecondsPuffedAfterDashEnds>k__BackingField: 1
   <SwarmRadiusPuffedFactor>k__BackingField: 1.5
+  <MaxX>k__BackingField: 56
+  <PlayerSpawnY>k__BackingField: 50
