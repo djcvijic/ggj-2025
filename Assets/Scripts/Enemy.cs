@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
         _playerPositionGetter = playerPositionGetter;
         _info = info;
         _remainingHealth = info.MaxHealth;
+        transform.localScale *= info.Scale;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
