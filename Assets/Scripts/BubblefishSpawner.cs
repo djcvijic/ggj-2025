@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = System.Random;
 
@@ -13,12 +14,18 @@ public class BubblefishSpawner : MonoBehaviour
 
     private Func<Vector2> _playerPositionGetter;
 
+    private readonly List<Bubblefish> _bubblefishList = new();
+
+    public int BubblefishPopped => _bubblefishList.Count(x => x.IsPopped);
+
     public void Initialize(Func<Vector2> playerPositionGetter)
     {
         _playerPositionGetter = playerPositionGetter;
         
         RegisterExistingChildren();
         StartSpawning();
+
+        App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
     }
 
     private void RegisterExistingChildren()
@@ -33,6 +40,8 @@ public class BubblefishSpawner : MonoBehaviour
     private void InitializeBubblefish(Bubblefish bubblefish)
     {
         bubblefish.Initialize(_playerPositionGetter);
+        _bubblefishList.Add(bubblefish);
+        Debug.Log($"Total bubblefish in the world: {_bubblefishList.Count}");
     }
 
     private void StartSpawning()
@@ -58,5 +67,10 @@ public class BubblefishSpawner : MonoBehaviour
         var randomPosition = new Vector3(_random.Next(-maxX, maxX), _random.Next(minY, maxY), 0);
         var bubblefish = Instantiate(prefab, randomPosition, Quaternion.identity, transform);
         InitializeBubblefish(bubblefish);
+    }
+
+    private void OnBubblefishPopped(Bubblefish bubblefish)
+    {
+        Debug.Log($"Total bubblefish popped: {BubblefishPopped}");
     }
 }

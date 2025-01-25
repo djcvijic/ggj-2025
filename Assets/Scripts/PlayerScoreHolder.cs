@@ -5,17 +5,16 @@ using UnityEngine;
 public class PlayerScoreHolder : MonoBehaviour
 {
     [SerializeField] private TMP_Text bubblefishNumberText;
-    
-    private int _totalBubblefishesPopped = 0;
+
+    private int TotalBubblefishesPopped => App.Instance.BubblefishManager.BubblefishPopped;
 
     public void Initialize()
     {
-        App.Instance.EventsNotifier.SubscribeBubblefishPopped(OnBubblefishPopped);
+        App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
     }
 
     private void OnBubblefishPopped(Bubblefish bubblefish)
     {
-        _totalBubblefishesPopped++;
-        bubblefishNumberText.text = _totalBubblefishesPopped.ToString();
+        bubblefishNumberText.text = TotalBubblefishesPopped.ToString();
     }
 }
