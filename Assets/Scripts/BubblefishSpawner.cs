@@ -8,7 +8,7 @@ using Random = System.Random;
 public class BubblefishSpawner : MonoBehaviour
 {
     [SerializeField] private List<Bubblefish> bubblefishPrefabs;
-    [SerializeField] private int maxX = 28;
+    private int MaxX => App.Instance.GameSettings.MaxX;
 
     private readonly Random _random = new();
 
@@ -67,7 +67,7 @@ public class BubblefishSpawner : MonoBehaviour
     private void SpawnBubbleFish(int minY, int maxY)
     {
         var prefab = bubblefishPrefabs.GetRandomElement();
-        var randomPosition = new Vector3(_random.Next(-maxX, maxX), _random.Next(minY, maxY), 0);
+        var randomPosition = new Vector3(_random.Next(-MaxX, MaxX), _random.Next(minY, maxY), 0);
         var bubblefish = Instantiate(prefab, randomPosition, Quaternion.identity, transform);
         InitializeBubblefish(bubblefish);
     }

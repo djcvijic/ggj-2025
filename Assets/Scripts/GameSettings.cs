@@ -35,4 +35,6 @@ public class GameSettings : ScriptableObject
     [field: SerializeField] public float FollowSpeed { get; private set; } = 1f;
     [field: SerializeField] public float SecondsPuffedAfterDashEnds { get; private set; } = 1f;
     [field: SerializeField] public float SwarmRadiusPuffedFactor { get; private set; } = 1.5f;
+    [field: SerializeField] public int MaxX { get; private set; } = 56;
+    [field: SerializeField] public float PlayerSpawnY { get; private set; } = 50;
 }
