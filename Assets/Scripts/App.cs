@@ -16,6 +16,6 @@ public class App : MonoSingleton<App>
         base.Awake();
         
         player = Instantiate(playerPrefab);
-        _cameraFollow = CameraFollow.InstantiateCameraFollowObj(player.transform, player.GetComponent<Rigidbody2D>());
+        _cameraFollow = CameraFollow.InstantiateCameraFollowObj().Initialize(player.transform, player.GetComponent<Rigidbody2D>());
     }
 }

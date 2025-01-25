@@ -4,18 +4,23 @@ public class PlayerMovement
 {
     private InputMovement _inputMovement;
     private DashMovement _dashMovement;
+    private SpriteRotator _spriteRotator;
     
     private Transform _transform;
     private Camera _camera;
+    private Rigidbody2D _rb;
 
     public PlayerMovement(Player player)
     {
         _camera = Camera.main;
         _transform = player.transform;
+        _rb = player.GetComponent<Rigidbody2D>();
         
-        var rb = player.GetComponent<Rigidbody2D>();
-        _inputMovement = new InputMovement(rb);
-        _dashMovement = new DashMovement(rb);
+        _inputMovement = new InputMovement(_rb);
+        _dashMovement = new DashMovement(_rb);
+        
+        _spriteRotator = player.GetComponent<SpriteRotator>();
+        _spriteRotator.Initialize(() => _rb.velocity.normalized);
     }
 
     public void Update()

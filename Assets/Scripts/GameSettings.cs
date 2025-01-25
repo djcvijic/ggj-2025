@@ -6,6 +6,7 @@ public class GameSettings : ScriptableObject
 {
     public float cameraFollowSpeed = 30f;
     public float cameraOffsetDistance = 8f;
+    public float baseCameraDistance = 7f;
     
     public float acceleration = 30f;
     public float maxSpeed = 8f;
