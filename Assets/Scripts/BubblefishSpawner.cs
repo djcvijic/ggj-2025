@@ -22,15 +22,16 @@ public class BubblefishSpawner : MonoBehaviour
 
     private void RegisterExistingChildren()
     {
-        foreach (var child in transform)
+        foreach (Transform child in transform)
         {
-            if (child is Bubblefish bubblefish)
-                SubscribeToBubblefish(bubblefish);
+            if (child.TryGetComponent(out Bubblefish bubblefish))
+                InitializeBubblefish(bubblefish);
         }
     }
 
-    private void SubscribeToBubblefish(Bubblefish bubblefish)
+    private void InitializeBubblefish(Bubblefish bubblefish)
     {
+        bubblefish.Initialize(() => App.Instance.player.transform.position);
         bubblefish.Popped += () => InvokeBubblefishPopped(bubblefish);
     }
 
@@ -59,7 +60,7 @@ public class BubblefishSpawner : MonoBehaviour
         var prefab = bubblefishPrefabs.GetRandomElement();
         var randomPosition = new Vector3(random.Next(-maxX, maxX), random.Next(-maxY, maxY), 0);
         var bubblefish = Instantiate(prefab, randomPosition, Quaternion.identity, transform);
-        SubscribeToBubblefish(bubblefish);
+        InitializeBubblefish(bubblefish);
     }
 
     private void OnDestroy()
