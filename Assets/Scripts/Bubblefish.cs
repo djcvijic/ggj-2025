@@ -15,14 +15,16 @@ public class Bubblefish : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private Func<Vector2> _playerPositionGetter;
+    private Func<bool> _maxBubblefishPoppedGetter;
     private float _initialColliderRadius;
 
     public bool IsPopped { get; private set; }
 
-    public void Initialize(Func<Vector2> playerPositionGetter)
+    public void Initialize(Func<Vector2> playerPositionGetter, Func<bool> maxBubblefishPoppedGetter)
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerPositionGetter = playerPositionGetter;
+        _maxBubblefishPoppedGetter = maxBubblefishPoppedGetter;
         rotator.Initialize(() => _playerPositionGetter() - (Vector2)transform.position);
         _initialColliderRadius = collider2d.radius;
     }
@@ -39,6 +41,9 @@ public class Bubblefish : MonoBehaviour
 
     private void Pop()
     {
+        if (_maxBubblefishPoppedGetter())
+            return;
+
         IsPopped = true;
         bubble.gameObject.SetActive(false);
         fish.sprite = happySprite;
