@@ -39,7 +39,7 @@ public class Bubblefish : MonoBehaviour
             Pop();
     }
 
-    private void Pop()
+    public void Pop()
     {
         if (_maxBubblefishPoppedGetter())
             return;
