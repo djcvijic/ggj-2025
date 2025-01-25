@@ -10,6 +10,7 @@ public class Bubblefish : MonoBehaviour
     [SerializeField] private Sprite sadSprite;
     [SerializeField] private SpriteRotator rotator;
     [SerializeField] private CircleCollider2D collider2d;
+    [SerializeField] private BubbleExplosion bubbleExplosion;
 
     private EventsNotifier Notifier => App.Instance.EventsNotifier;
 
@@ -45,6 +46,7 @@ public class Bubblefish : MonoBehaviour
             return;
 
         IsPopped = true;
+        bubbleExplosion.Explode();
         bubble.gameObject.SetActive(false);
         fish.sprite = happySprite;
         Notifier.NotifyBubblefishPopped(this);
