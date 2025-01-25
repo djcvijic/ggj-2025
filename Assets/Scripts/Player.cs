@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
 
     private float _puffSecondsRemaining;
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         playerMovement = new PlayerMovement(this);
     }
@@ -39,6 +39,6 @@ public class Player : MonoBehaviour
         else if (IsPuffed)
             _puffSecondsRemaining -= Time.deltaTime;
 
-        spriteRenderer.sprite = IsPuffed ? puffedSprite : defaultSprite;
+        _spriteRenderer.sprite = IsPuffed ? puffedSprite : defaultSprite;
     }
 }
