@@ -21,5 +21,15 @@ MonoBehaviour:
   dashSpeed: 2000
   dashDuration: 0.1
   dashCooldown: 2
-  <SecondsBetweenSpawns>k__BackingField: 1
+  <SpawnLayers>k__BackingField:
+  - <MinY>k__BackingField: 21
+    <MaxY>k__BackingField: 32
+    <SecondsBetweenSpawns>k__BackingField: 1
+  - <MinY>k__BackingField: 11
+    <MaxY>k__BackingField: 21
+    <SecondsBetweenSpawns>k__BackingField: 2
+  - <MinY>k__BackingField: 0
+    <MaxY>k__BackingField: 11
+    <SecondsBetweenSpawns>k__BackingField: 3
   <FollowSpeed>k__BackingField: 1
+  <SecondsPuffedAfterDashEnds>k__BackingField: 1

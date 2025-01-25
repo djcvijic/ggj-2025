@@ -8,7 +8,6 @@ public class BubblefishSpawner : MonoBehaviour
 {
     [SerializeField] private List<Bubblefish> bubblefishPrefabs;
     [SerializeField] private int maxX = 28;
-    [SerializeField] private int maxY = 32;
 
     private readonly Random _random = new();
 
@@ -38,22 +37,25 @@ public class BubblefishSpawner : MonoBehaviour
 
     private void StartSpawning()
     {
-        StartCoroutine(SpawnPeriodically());
-    }
-
-    private IEnumerator SpawnPeriodically()
-    {
-        while (true)
+        foreach (var layer in App.Instance.GameSettings.SpawnLayers)
         {
-            yield return new WaitForSeconds(App.Instance.GameSettings.SecondsBetweenSpawns);
-            SpawnBubbleFish();
+            StartCoroutine(SpawnPeriodically(layer));
         }
     }
 
-    private void SpawnBubbleFish()
+    private IEnumerator SpawnPeriodically(SpawnLayer layer)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(layer.SecondsBetweenSpawns);
+            SpawnBubbleFish(layer.MinY, layer.MaxY);
+        }
+    }
+
+    private void SpawnBubbleFish(int minY, int maxY)
     {
         var prefab = bubblefishPrefabs.GetRandomElement();
-        var randomPosition = new Vector3(_random.Next(-maxX, maxX), _random.Next(-maxY, maxY), 0);
+        var randomPosition = new Vector3(_random.Next(-maxX, maxX), _random.Next(minY, maxY), 0);
         var bubblefish = Instantiate(prefab, randomPosition, Quaternion.identity, transform);
         InitializeBubblefish(bubblefish);
     }
