@@ -1,23 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    public SpriteRenderer sprite;
-    public PlayerMovement playerMovement;
+    [SerializeField] private Sprite defaultSprite;
+    [SerializeField] private Sprite puffedSprite;
 
-     private Rigidbody2D _rb;
+    private PlayerMovement playerMovement;
 
-     private float _puffSecondsRemaining;
+    private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rb;
 
-     private bool IsDashing => playerMovement is { IsDashing: true };
+    private float _puffSecondsRemaining;
 
-     public bool IsPuffed => IsDashing || _puffSecondsRemaining > 0;
+    private bool IsDashing => playerMovement is { IsDashing: true };
+
+    public bool IsPuffed => IsDashing || _puffSecondsRemaining > 0;
 
     private void Awake()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         playerMovement = new PlayerMovement(this);
     }
@@ -35,5 +38,7 @@ public class Player : MonoBehaviour
             _puffSecondsRemaining = App.Instance.GameSettings.SecondsPuffedAfterDashEnds;
         else if (IsPuffed)
             _puffSecondsRemaining -= Time.deltaTime;
+
+        _spriteRenderer.sprite = IsPuffed ? puffedSprite : defaultSprite;
     }
 }
