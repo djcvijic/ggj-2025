@@ -11,6 +11,7 @@ public class BubblefishSpawner : MonoBehaviour
     [SerializeField] private int maxY = 32;
 
     public event Action<Bubblefish> BubblefishPopped;
+    public BubblefishPoppedEvent bubblefishPoppedEvent;
 
     private readonly Random _random = new();
 
@@ -19,6 +20,10 @@ public class BubblefishSpawner : MonoBehaviour
     public void Initialize(Func<Vector2> playerPositionGetter)
     {
         _playerPositionGetter = playerPositionGetter;
+
+        bubblefishPoppedEvent = new BubblefishPoppedEvent();
+        bubblefishPoppedEvent.AddEvent(InvokeBubblefishPopped);
+        
         RegisterExistingChildren();
         StartSpawning();
     }
@@ -34,8 +39,7 @@ public class BubblefishSpawner : MonoBehaviour
 
     private void InitializeBubblefish(Bubblefish bubblefish)
     {
-        bubblefish.Initialize(_playerPositionGetter);
-        bubblefish.Popped += () => InvokeBubblefishPopped(bubblefish);
+        bubblefish.Initialize(_playerPositionGetter, bubblefishPoppedEvent);
     }
 
     private void InvokeBubblefishPopped(Bubblefish bubblefish)

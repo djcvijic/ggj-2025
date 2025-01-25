@@ -10,16 +10,17 @@ public class Bubblefish : MonoBehaviour
     [SerializeField] private Sprite sadSprite;
     [SerializeField] private SpriteRotator rotator;
 
-    public event Action Popped;
+    public BubblefishPoppedEvent Popped;
 
     private Rigidbody2D _rigidbody;
     private Func<Vector2> _playerPositionGetter;
     private bool _popped;
 
-    public void Initialize(Func<Vector2> playerPositionGetter)
+    public void Initialize(Func<Vector2> playerPositionGetter, BubblefishPoppedEvent onPoppedEvents)
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerPositionGetter = playerPositionGetter;
+        Popped = onPoppedEvents;
         rotator.Initialize(() => _playerPositionGetter() - (Vector2)transform.position);
     }
 
@@ -38,7 +39,7 @@ public class Bubblefish : MonoBehaviour
         _popped = true;
         bubble.gameObject.SetActive(false);
         fish.sprite = happySprite;
-        Popped?.Invoke();
+        Popped.OnBubblefishPopped(this);
     }
 
     private void FixedUpdate()
