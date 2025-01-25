@@ -6,8 +6,17 @@ public class CameraFollow : MonoBehaviour
     private Transform _playerTransform;
     private Transform _cameraTransform;
     private Rigidbody2D _playerRigidbody;
+    private Camera _camera;
 
-    public static float MinCameraDistance => App.Instance.GameSettings.minCameraDistance;
+    private float CameraDistance
+    {
+        get
+        {
+            float normalizedPercentage = Mathf.Clamp01(App.Instance.BubblefishManager.BubblefishPoppedPercentage / 100f);
+            float curveValue = App.Instance.GameSettings.cameraDistanceCurve.Evaluate(normalizedPercentage);
+            return Mathf.Lerp(App.Instance.GameSettings.minCameraDistance, App.Instance.GameSettings.maxCameraDistance, curveValue);
+        }
+    }
     public static Vector3 InitialCameraPosition => App.Instance.GameSettings.initialCameraPosition;
     public float FollowSpeed => App.Instance.GameSettings.cameraFollowSpeed;
     public float MaxPlayerSpeed => App.Instance.GameSettings.maxSpeed; 
@@ -16,12 +25,15 @@ public class CameraFollow : MonoBehaviour
 
     public CameraFollow Initialize(Transform playerTransform, Rigidbody2D playerRigidbody)
     {
-        _cameraTransform = Camera.main.transform;
+        _camera = Camera.main;
+        _cameraTransform = _camera.transform;
         _playerTransform = playerTransform;
         _playerRigidbody = playerRigidbody;
 
-        Camera.main.orthographicSize = MinCameraDistance;
-        Camera.main.transform.position = InitialCameraPosition;
+        _camera.orthographicSize = CameraDistance;
+        _camera.transform.position = InitialCameraPosition;
+
+        App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
 
         return this;
     }
@@ -48,6 +60,11 @@ public class CameraFollow : MonoBehaviour
         targetPosition.z = _cameraTransform.position.z; // Preserve Z-axis
 
         _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, targetPosition, FollowSpeed * Time.deltaTime);
+    }
+
+    private void OnBubblefishPopped(Bubblefish bubblefish)
+    {
+        _camera.orthographicSize = CameraDistance;
     }
 
     public static CameraFollow InstantiateCameraFollowObj()
