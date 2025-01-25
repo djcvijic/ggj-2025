@@ -447,7 +447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3023838130719294334, guid: 697db22262a12a649abae2fc0721e57c, type: 3}
       propertyPath: m_Name
-      value: BubblefishHolder
+      value: BubblefishManager
       objectReference: {fileID: 0}
     - target: {fileID: 3887886872212295405, guid: 697db22262a12a649abae2fc0721e57c, type: 3}
       propertyPath: m_LocalPosition.x
