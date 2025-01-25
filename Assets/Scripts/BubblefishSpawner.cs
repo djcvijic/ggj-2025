@@ -38,15 +38,14 @@ public class BubblefishSpawner : MonoBehaviour
 
     private void StartSpawning()
     {
-        var waitForSeconds = new WaitForSeconds(App.Instance.GameSettings.SecondsBetweenSpawns);
-        StartCoroutine(SpawnPeriodically(waitForSeconds));
+        StartCoroutine(SpawnPeriodically());
     }
 
-    private IEnumerator SpawnPeriodically(WaitForSeconds waitForSeconds)
+    private IEnumerator SpawnPeriodically()
     {
         while (true)
         {
-            yield return waitForSeconds;
+            yield return new WaitForSeconds(App.Instance.GameSettings.SecondsBetweenSpawns);
             SpawnBubbleFish();
         }
     }
