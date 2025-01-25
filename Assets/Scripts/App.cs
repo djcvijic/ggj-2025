@@ -5,8 +5,7 @@ public class App : MonoSingleton<App>
     public GameSettings GameSettings;
     
     [SerializeField] private Player playerPrefab;
-
-    [SerializeField] private BubblefishSpawner bubblefishSpawner;
+    [SerializeField] private BubblefishManager bubblefishManager;
     
     private CameraFollow _cameraFollow;
     private Player player;
@@ -17,6 +16,6 @@ public class App : MonoSingleton<App>
         
         player = Instantiate(playerPrefab);
         _cameraFollow = CameraFollow.InstantiateCameraFollowObj().Initialize(player.transform, player.GetComponent<Rigidbody2D>());
-        bubblefishSpawner.Initialize(() => player.transform.position);
+        bubblefishManager.Initialize(player);
     }
 }
