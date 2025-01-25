@@ -37,4 +37,6 @@ public class GameSettings : ScriptableObject
     [field: SerializeField] public float SwarmRadiusPuffedFactor { get; private set; } = 1.5f;
     [field: SerializeField] public int MaxX { get; private set; } = 56;
     [field: SerializeField] public float PlayerSpawnY { get; private set; } = 50;
+    [field: SerializeField] public int MaxBubblefishInWorld { get; private set; } = 200;
+    [field: SerializeField] public int MaxPoppedBubblefish { get; private set; } = 120;
 }

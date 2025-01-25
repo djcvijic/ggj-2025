@@ -42,9 +42,14 @@ public class BubblefishSpawner : MonoBehaviour
 
     private void InitializeBubblefish(Bubblefish bubblefish)
     {
-        bubblefish.Initialize(_playerPositionGetter);
+        bubblefish.Initialize(_playerPositionGetter, MaxBubblefishPopped);
         _bubblefishList.Add(bubblefish);
         Debug.Log($"Total bubblefish in the world: {_bubblefishList.Count}");
+    }
+
+    private bool MaxBubblefishPopped()
+    {
+        return BubblefishPoppedCount >= App.Instance.GameSettings.MaxPoppedBubblefish;
     }
 
     private void StartSpawning()
@@ -66,6 +71,9 @@ public class BubblefishSpawner : MonoBehaviour
 
     private void SpawnBubbleFish(int minY, int maxY)
     {
+        if (_bubblefishList.Count > App.Instance.GameSettings.MaxBubblefishInWorld)
+            return;
+
         var prefab = bubblefishPrefabs.GetRandomElement();
         var randomPosition = new Vector3(_random.Next(-MaxX, MaxX), _random.Next(minY, maxY), 0);
         var bubblefish = Instantiate(prefab, randomPosition, Quaternion.identity, transform);
