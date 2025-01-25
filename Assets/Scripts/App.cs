@@ -4,11 +4,11 @@ public class App : MonoSingleton<App>
 {
     public GameSettings GameSettings;
     
-    public Player playerPrefab;
+    [SerializeField] private Player playerPrefab;
 
     [SerializeField] private BubblefishSpawner bubblefishSpawner;
-
-    [HideInInspector]
+    
+    private CameraFollow _cameraFollow;
     public Player player;
     
     protected override void Awake()
@@ -16,5 +16,6 @@ public class App : MonoSingleton<App>
         base.Awake();
         
         player = Instantiate(playerPrefab);
+        _cameraFollow = CameraFollow.InstantiateCameraFollowObj(player.transform, player.GetComponent<Rigidbody2D>());
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Game Settings")]
 public class GameSettings : ScriptableObject
 {
+    public float cameraFollowSpeed = 30f;
+    public float cameraOffsetDistance = 8f;
+    
     public float acceleration = 30f;
     public float maxSpeed = 8f;
     public float friction = 10f;
