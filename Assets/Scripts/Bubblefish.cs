@@ -7,10 +7,16 @@ public class Bubblefish : MonoBehaviour
     [SerializeField] private SpriteRenderer fish;
     [SerializeField] private Sprite happySprite;
     [SerializeField] private Sprite sadSprite;
+    [SerializeField] private SpriteRotator rotator;
 
     public event Action Popped;
 
     private bool _popped;
+
+    public void Initialize(Func<Vector2> playerPositionGetter)
+    {
+        rotator.Initialize(() => playerPositionGetter() - (Vector2)transform.position);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
