@@ -2,42 +2,27 @@
 
 public class PlayerMovement
 {
-    private Player _player;
-    
-    private InertialMovement _inertialMovement;
+    private InputMovement _inputMovement;
     private DashMovement _dashMovement;
     
     private Transform _transform;
     private Camera _camera;
 
-    private Vector3 Position
-    {
-        get => _transform.position;
-        set => _transform.position = value;
-    }
-
     public PlayerMovement(Player player)
     {
         _camera = Camera.main;
-        _player = player;
-        _transform = _player.transform;
-        _inertialMovement = new InertialMovement();
-        _dashMovement = new DashMovement();
+        _transform = player.transform;
+        
+        var rb = player.GetComponent<Rigidbody2D>();
+        _inputMovement = new InputMovement(rb);
+        _dashMovement = new DashMovement(rb);
     }
 
     public void Update()
     {
         CheckForDash();
-        UpdatePosition();
-    }
-
-    private void UpdatePosition()
-    {
-        Vector3  newPosition = _dashMovement.IsDashing ? 
-            _dashMovement.CalculateNewPosition(Position, Time.deltaTime) : 
-            _inertialMovement.CalculateNewPosition(Position, Time.deltaTime);
-
-        Position = newPosition;
+        _inputMovement.HandleMovementFromInput();
+        _dashMovement.HandleMovementFromDash();
     }
 
     private void CheckForDash()
@@ -49,7 +34,6 @@ public class PlayerMovement
         mousePosition = _camera.ScreenToWorldPoint(mousePosition);
         mousePosition.z = 0;
 
-        _inertialMovement.StopMovement();
-        _dashMovement.StartDash(Position, mousePosition);
+        _dashMovement.StartDash(_transform.position, mousePosition);
     }
 }

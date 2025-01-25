@@ -3,31 +3,41 @@
 public class DashMovement
 {
     private Vector3 _dashDirection;
+
+    private Rigidbody2D _rb;
     private float DashSpeed => App.Instance.GameSettings.dashSpeed;
     private float DashDuration => App.Instance.GameSettings.dashDuration;
-    
+
     private float _dashTimer;
+
+    public DashMovement(Rigidbody2D rb)
+    {
+        _rb = rb;
+    }
 
     public bool IsDashing { get; private set; }
 
     public void StartDash(Vector3 currentPosition, Vector3 targetPosition)
     {
+        _rb.velocity = Vector3.zero;
         _dashDirection = (targetPosition - currentPosition).normalized;
-        IsDashing = true;
         _dashTimer = DashDuration;
+
+        IsDashing = true;
     }
 
-    public Vector3 CalculateNewPosition(Vector3 currentPosition, float deltaTime)
+    public void HandleMovementFromDash()
     {
         if (_dashTimer > 0)
         {
-            _dashTimer -= deltaTime;
-            return currentPosition + _dashDirection * (DashSpeed * deltaTime);
+            _dashTimer -= Time.deltaTime;
+
+            Vector3 force = _dashDirection * DashSpeed;
+            _rb.AddForce(force * Time.deltaTime);
+
+            return;
         }
-        else
-        {
-            IsDashing = false;
-            return currentPosition;
-        }
+
+        IsDashing = false;
     }
 }
