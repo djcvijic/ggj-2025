@@ -5,9 +5,9 @@ public class DashMovement
     private Vector3 _dashDirection;
     private Rigidbody2D _rb;
 
-    private float DashSpeed => App.Instance.GameSettings.dashSpeed;
+    private float MinDashSpeed => App.Instance.GameSettings.minDashSpeed;
     private float DashDuration => App.Instance.GameSettings.dashDuration;
-    private float DashCooldown => App.Instance.GameSettings.dashCooldown;
+    private float MinDashCooldown => App.Instance.GameSettings.minDashCooldown;
 
     private float _dashTimer;
     private float _cooldownTimer;
@@ -40,14 +40,14 @@ public class DashMovement
             {
                 _dashTimer -= Time.deltaTime;
 
-                Vector3 force = _dashDirection * DashSpeed;
+                Vector3 force = _dashDirection * MinDashSpeed;
                 _rb.AddForce(force * Time.deltaTime);
             }
             else
             {
                 // End the dash and start cooldown
                 IsDashing = false;
-                _cooldownTimer = DashCooldown;
+                _cooldownTimer = MinDashCooldown;
             }
         }
         else if (IsOnCooldown)

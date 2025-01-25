@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     private Transform _cameraTransform;
     private Rigidbody2D _playerRigidbody;
 
-    public static float BaseCameraDistance => App.Instance.GameSettings.baseCameraDistance;
+    public static float MinCameraDistance => App.Instance.GameSettings.minCameraDistance;
     public static Vector3 InitialCameraPosition => App.Instance.GameSettings.initialCameraPosition;
     public float FollowSpeed => App.Instance.GameSettings.cameraFollowSpeed;
     public float MaxPlayerSpeed => App.Instance.GameSettings.maxSpeed; 
@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
         _playerTransform = playerTransform;
         _playerRigidbody = playerRigidbody;
 
-        Camera.main.orthographicSize = BaseCameraDistance;
+        Camera.main.orthographicSize = MinCameraDistance;
         Camera.main.transform.position = InitialCameraPosition;
 
         return this;
