@@ -12,10 +12,13 @@ public class BubblefishSpawner : MonoBehaviour
 
     public event Action<Bubblefish> BubblefishPopped;
 
-    private readonly Random random = new();
+    private readonly Random _random = new();
 
-    private void Awake()
+    private Func<Vector2> _playerPositionGetter;
+
+    public void Initialize(Func<Vector2> playerPositionGetter)
     {
+        _playerPositionGetter = playerPositionGetter;
         RegisterExistingChildren();
         StartSpawning();
     }
@@ -31,7 +34,7 @@ public class BubblefishSpawner : MonoBehaviour
 
     private void InitializeBubblefish(Bubblefish bubblefish)
     {
-        bubblefish.Initialize(() => App.Instance.player.transform.position);
+        bubblefish.Initialize(_playerPositionGetter);
         bubblefish.Popped += () => InvokeBubblefishPopped(bubblefish);
     }
 
@@ -58,7 +61,7 @@ public class BubblefishSpawner : MonoBehaviour
     private void SpawnBubbleFish()
     {
         var prefab = bubblefishPrefabs.GetRandomElement();
-        var randomPosition = new Vector3(random.Next(-maxX, maxX), random.Next(-maxY, maxY), 0);
+        var randomPosition = new Vector3(_random.Next(-maxX, maxX), _random.Next(-maxY, maxY), 0);
         var bubblefish = Instantiate(prefab, randomPosition, Quaternion.identity, transform);
         InitializeBubblefish(bubblefish);
     }
