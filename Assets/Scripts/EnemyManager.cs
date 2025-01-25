@@ -34,13 +34,13 @@ public class EnemyManager : MonoBehaviour
             var prefab = info.Prefab;
             var randomPosition = new Vector3(_random.Next(-MaxX, MaxX), _random.Next(info.MinY, info.MaxY), 0);
             var enemy = Instantiate(prefab, randomPosition, Quaternion.identity, transform);
-            InitializeEnemy(enemy);
+            InitializeEnemy(enemy, info);
         }
     }
 
-    private void InitializeEnemy(Enemy enemy)
+    private void InitializeEnemy(Enemy enemy, EnemySpawnInfo info)
     {
-        enemy.Initialize(_playerPositionGetter);
+        enemy.Initialize(_playerPositionGetter, info);
         _enemyList.Add(enemy);
     }
 }

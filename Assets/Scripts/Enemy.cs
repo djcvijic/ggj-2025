@@ -6,13 +6,18 @@ public class Enemy : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private Func<Vector2> _playerPositionGetter;
+    private EnemySpawnInfo _info;
 
-    private bool IsDead => throw new NotImplementedException();
+    private int _remainingHealth;
 
-    public void Initialize(Func<Vector2> playerPositionGetter)
+    private bool IsDead => _remainingHealth <= 0;
+
+    public void Initialize(Func<Vector2> playerPositionGetter, EnemySpawnInfo info)
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerPositionGetter = playerPositionGetter;
+        _info = info;
+        _remainingHealth = info.MaxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,12 +27,13 @@ public class Enemy : MonoBehaviour
 
         var player = other.GetComponent<Player>();
         if (player != null && player.IsPuffed)
-            TakeAHit();
+            CollideWithPlayer();
     }
 
-    private void TakeAHit()
+    // TODO check if player has collected enough bubblefish, if not damage player instead
+    private void CollideWithPlayer()
     {
-        throw new NotImplementedException();
+        _remainingHealth--;
     }
 
     private void FixedUpdate()
@@ -46,11 +52,12 @@ public class Enemy : MonoBehaviour
         if (!ShouldFollowPlayer(diff))
             return;
 
-        _rigidbody.MovePosition(position + Time.fixedDeltaTime * App.Instance.GameSettings.EnemyFollowSpeed * (Vector3)diff);
+        var direction = diff.normalized;
+        _rigidbody.MovePosition(position + Time.fixedDeltaTime * _info.MoveSpeed * (Vector3)direction);
     }
 
     private bool ShouldFollowPlayer(Vector2 diff)
     {
-        throw new NotImplementedException();
+        return diff.magnitude < _info.AggroRange;
     }
 }

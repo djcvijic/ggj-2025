@@ -42,5 +42,4 @@ public class GameSettings : ScriptableObject
 
     [field: Header("Enemies")]
     [field: SerializeField] public List<EnemySpawnInfo> EnemySpawns { get; private set; } = new();
-    [field: SerializeField] public float EnemyFollowSpeed { get; private set; } = 0.5f;
 }

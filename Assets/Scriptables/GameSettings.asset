@@ -118,6 +118,6 @@ MonoBehaviour:
   <EnemySpawns>k__BackingField:
   - <Count>k__BackingField: 4
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 7f96d96340af4452c991cb7d795e60f1, type: 3}
-    <MinY>k__BackingField: 42
+    <MinY>k__BackingField: 22
     <MaxY>k__BackingField: 64
   <EnemyFollowSpeed>k__BackingField: 0.5
