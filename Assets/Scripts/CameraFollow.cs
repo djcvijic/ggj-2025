@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
     public float FollowSpeed => App.Instance.GameSettings.cameraFollowSpeed;
     public float OffsetDistance => App.Instance.GameSettings.cameraOffsetDistance;
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleCameraMovement();
     }
