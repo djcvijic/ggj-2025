@@ -31,6 +31,22 @@ public class BubblefishSpawner : MonoBehaviour
         App.Instance.EventsNotifier.PuffednessChanged += OnPuffednessChanged;
     }
 
+    private void Update()
+    {
+        DebugPop10Fish();
+    }
+
+    private void DebugPop10Fish()
+    {
+        if (!Input.GetKeyDown(KeyCode.F))
+            return;
+
+        foreach (var bubblefish in _bubblefishList.Where(x => !x.IsPopped).Take(10))
+        {
+            bubblefish.Pop();
+        }
+    }
+
     private void RegisterExistingChildren()
     {
         foreach (Transform child in transform)
