@@ -11,7 +11,6 @@ public class GameSettings : ScriptableObject
     public float dashSpeed = 10f;
     public float dashDuration = 0.25f;
     public float dashCooldown = 2f;
-    public float dashDeceleration = 0.05f;
     
     [field: SerializeField] public float SecondsBetweenSpawns { get; private set; } = 1f;
 

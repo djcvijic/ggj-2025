@@ -3,15 +3,12 @@
 public class DashMovement
 {
     private Vector3 _dashDirection;
-    private Vector3 _targetPosition;
 
     private Rigidbody2D _rb;
     private float DashSpeed => App.Instance.GameSettings.dashSpeed;
     private float DashDuration => App.Instance.GameSettings.dashDuration;
-    private float DecelerationFactor => App.Instance.GameSettings.dashDeceleration;
 
     private float _dashTimer;
-    private float _currentSpeed;
 
     public DashMovement(Rigidbody2D rb)
     {
@@ -22,30 +19,25 @@ public class DashMovement
 
     public void StartDash(Vector3 currentPosition, Vector3 targetPosition)
     {
+        _rb.velocity = Vector3.zero;
         _dashDirection = (targetPosition - currentPosition).normalized;
-        _targetPosition = targetPosition;
-        IsDashing = true;
         _dashTimer = DashDuration;
-        _currentSpeed = DashSpeed;
+
+        IsDashing = true;
     }
 
-    public Vector3 CalculateNewPosition(Vector3 currentPosition, float deltaTime)
+    public void HandleMovementFromDash()
     {
         if (_dashTimer > 0)
         {
-            _dashTimer -= deltaTime;
+            _dashTimer -= Time.deltaTime;
 
-            float deceleration = DecelerationFactor * (1 - (_dashTimer / DashDuration));
-            float adjustedSpeed = Mathf.Max(0, _currentSpeed - deceleration);
+            Vector3 force = _dashDirection * DashSpeed;
+            _rb.AddForce(force * Time.deltaTime);
 
-            _currentSpeed = adjustedSpeed;
-
-            return currentPosition + _dashDirection * (_currentSpeed * deltaTime);
+            return;
         }
-        else
-        {
-            IsDashing = false;
-            return currentPosition;
-        }
+
+        IsDashing = false;
     }
 }
