@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Bubblefish : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer bubble;
@@ -11,11 +12,13 @@ public class Bubblefish : MonoBehaviour
 
     public event Action Popped;
 
+    private Rigidbody2D _rigidbody;
     private Func<Vector2> _playerPositionGetter;
     private bool _popped;
 
     public void Initialize(Func<Vector2> playerPositionGetter)
     {
+        _rigidbody = GetComponent<Rigidbody2D>();
         _playerPositionGetter = playerPositionGetter;
         rotator.Initialize(() => _playerPositionGetter() - (Vector2)transform.position);
     }
@@ -38,7 +41,7 @@ public class Bubblefish : MonoBehaviour
         Popped?.Invoke();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Follow();
     }
@@ -51,7 +54,7 @@ public class Bubblefish : MonoBehaviour
         var t = transform;
         var position = t.position;
         var diff = _playerPositionGetter() - (Vector2)position;
-        t.position = position + Time.deltaTime * App.Instance.GameSettings.FollowSpeed * (Vector3)diff;
+        _rigidbody.MovePosition(position + Time.fixedDeltaTime * App.Instance.GameSettings.FollowSpeed * (Vector3)diff);
     }
 
     private void OnDestroy()
