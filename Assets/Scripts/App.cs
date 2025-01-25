@@ -20,7 +20,7 @@ public class App : MonoSingleton<App>
         
         appCanvas.Initialize();
         
-        player = Instantiate(playerPrefab);
+        player = Instantiate(playerPrefab, GameSettings.PlayerSpawnY * Vector3.up, Quaternion.identity);
         _cameraFollow = CameraFollow.InstantiateCameraFollowObj().Initialize(player.transform, player.GetComponent<Rigidbody2D>());
         BubblefishManager.Initialize(player);
     }
