@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4e5683fc4647dbba7403883f3821a5, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  initialCameraPosition: {x: 0, y: -20, z: -10}
   cameraFollowSpeed: 2
   cameraOffsetDistance: 2
-  baseCameraDistance: 7
+  baseCameraDistance: 5
   acceleration: 350
   maxSpeed: 20
   friction: 4.5
