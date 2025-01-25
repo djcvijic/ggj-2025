@@ -5,9 +5,27 @@ public class DashMovement
     private Vector3 _dashDirection;
     private Rigidbody2D _rb;
 
-    private float MinDashSpeed => App.Instance.GameSettings.minDashSpeed;
+    private float DashSpeed
+    {
+        get
+        {
+            float normalizedPercentage = Mathf.Clamp01(App.Instance.BubblefishManager.BubblefishPoppedPercentage);
+            float curveValue = App.Instance.GameSettings.dashSpeedCurve.Evaluate(normalizedPercentage);
+            return Mathf.Lerp(App.Instance.GameSettings.minDashSpeed, App.Instance.GameSettings.maxDashSpeed, curveValue);
+        }
+    }
+
+    private float DashCooldown
+    {
+        get
+        {
+            float normalizedPercentage = Mathf.Clamp01(App.Instance.BubblefishManager.BubblefishPoppedPercentage);
+            float curveValue = App.Instance.GameSettings.dashCooldownCurve.Evaluate(normalizedPercentage);
+            return Mathf.Lerp(App.Instance.GameSettings.minDashCooldown, App.Instance.GameSettings.maxDashCooldown, curveValue);
+        }
+    }
+
     private float DashDuration => App.Instance.GameSettings.dashDuration;
-    private float MinDashCooldown => App.Instance.GameSettings.minDashCooldown;
 
     private float _dashTimer;
     private float _cooldownTimer;
@@ -40,14 +58,14 @@ public class DashMovement
             {
                 _dashTimer -= Time.deltaTime;
 
-                Vector3 force = _dashDirection * MinDashSpeed;
+                Vector3 force = _dashDirection * DashSpeed;
                 _rb.AddForce(force * Time.deltaTime);
             }
             else
             {
                 // End the dash and start cooldown
                 IsDashing = false;
-                _cooldownTimer = MinDashCooldown;
+                _cooldownTimer = DashCooldown;
             }
         }
         else if (IsOnCooldown)
