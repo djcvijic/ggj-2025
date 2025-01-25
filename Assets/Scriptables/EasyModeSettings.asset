@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc4e5683fc4647dbba7403883f3821a5, type: 3}
-  m_Name: GameSettings
+  m_Name: EasyModeSettings
   m_EditorClassIdentifier: 
   initialCameraPosition: {x: 0, y: -20, z: -10}
   cameraFollowSpeed: 2
@@ -45,8 +45,8 @@ MonoBehaviour:
   acceleration: 350
   maxSpeed: 20
   friction: 4.5
-  minDashSpeed: 2000
-  maxDashSpeed: 4000
+  minDashSpeed: 1400
+  maxDashSpeed: 3500
   dashSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -72,8 +72,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   dashDuration: 0.1
-  minDashCooldown: 2
-  maxDashCooldown: 4
+  minDashCooldown: 0.3
+  maxDashCooldown: 0.6
   dashCooldownCurve:
     serializedVersion: 2
     m_Curve:
@@ -101,20 +101,20 @@ MonoBehaviour:
   <SpawnLayers>k__BackingField:
   - <MinY>k__BackingField: 42
     <MaxY>k__BackingField: 64
-    <SecondsBetweenSpawns>k__BackingField: 1
+    <SecondsBetweenSpawns>k__BackingField: 0.5
   - <MinY>k__BackingField: 22
     <MaxY>k__BackingField: 42
-    <SecondsBetweenSpawns>k__BackingField: 2
+    <SecondsBetweenSpawns>k__BackingField: 0.6
   - <MinY>k__BackingField: 0
     <MaxY>k__BackingField: 22
-    <SecondsBetweenSpawns>k__BackingField: 3
+    <SecondsBetweenSpawns>k__BackingField: 0.5
   <FollowSpeed>k__BackingField: 1
   <SecondsPuffedAfterDashEnds>k__BackingField: 1
-  <SwarmRadiusPuffedFactor>k__BackingField: 1.5
+  <SwarmRadiusPuffedFactor>k__BackingField: 1
   <MaxX>k__BackingField: 56
   <PlayerSpawnY>k__BackingField: 50
-  <MaxBubblefishInWorld>k__BackingField: 200
-  <MaxPoppedBubblefish>k__BackingField: 9999
+  <MaxBubblefishInWorld>k__BackingField: 400
+  <MaxPoppedBubblefish>k__BackingField: 40
   <EnemySpawns>k__BackingField:
   - <Count>k__BackingField: 4
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 7f96d96340af4452c991cb7d795e60f1, type: 3}
@@ -125,7 +125,7 @@ MonoBehaviour:
     <AggroRange>k__BackingField: 20
     <Damage>k__BackingField: 1
     <MaxHealth>k__BackingField: 1
-    <RequiredBubblefishToDamage>k__BackingField: 20
+    <RequiredBubblefishToDamage>k__BackingField: 5
   - <Count>k__BackingField: 4
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 39749befa96b40049bd5602086fdb074, type: 3}
     <MinY>k__BackingField: -22
@@ -135,7 +135,7 @@ MonoBehaviour:
     <AggroRange>k__BackingField: 20
     <Damage>k__BackingField: 1
     <MaxHealth>k__BackingField: 1
-    <RequiredBubblefishToDamage>k__BackingField: 20
+    <RequiredBubblefishToDamage>k__BackingField: 15
   - <Count>k__BackingField: 4
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 3853ddc8bac35b94d8000a1cd0c89425, type: 3}
     <MinY>k__BackingField: -22
@@ -155,7 +155,7 @@ MonoBehaviour:
     <AggroRange>k__BackingField: 20
     <Damage>k__BackingField: 1
     <MaxHealth>k__BackingField: 1
-    <RequiredBubblefishToDamage>k__BackingField: 20
+    <RequiredBubblefishToDamage>k__BackingField: 25
   - <Count>k__BackingField: 1
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 1bfaebbffe82d0e448c2ea60b71aeb03, type: 3}
     <MinY>k__BackingField: -64
@@ -165,4 +165,4 @@ MonoBehaviour:
     <AggroRange>k__BackingField: 20
     <Damage>k__BackingField: 1
     <MaxHealth>k__BackingField: 1
-    <RequiredBubblefishToDamage>k__BackingField: 20
+    <RequiredBubblefishToDamage>k__BackingField: 35
