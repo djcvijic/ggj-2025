@@ -39,4 +39,8 @@ public class GameSettings : ScriptableObject
     [field: SerializeField] public float PlayerSpawnY { get; private set; } = 50;
     [field: SerializeField] public int MaxBubblefishInWorld { get; private set; } = 200;
     [field: SerializeField] public int MaxPoppedBubblefish { get; private set; } = 9999;
+
+    [field: Header("Enemies")]
+    [field: SerializeField] public List<EnemySpawnInfo> EnemySpawns { get; private set; } = new();
+    [field: SerializeField] public float EnemyFollowSpeed { get; private set; } = 0.5f;
 }
