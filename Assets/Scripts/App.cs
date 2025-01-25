@@ -9,7 +9,7 @@ public class App : MonoSingleton<App>
     [SerializeField] private BubblefishSpawner bubblefishSpawner;
     
     private CameraFollow _cameraFollow;
-    private Player player;
+    public Player player;
     
     protected override void Awake()
     {
