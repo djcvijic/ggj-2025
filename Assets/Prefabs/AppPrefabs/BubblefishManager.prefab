@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5297434446394701039}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8525815234646245263
@@ -49,7 +50,6 @@ MonoBehaviour:
   - {fileID: 662024786317766090, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
   - {fileID: 2760251346637163184, guid: 2639d5e8bb7af4c9aad3db9039c65b8a, type: 3}
   - {fileID: 2760251346637163184, guid: fcb9fdecc0ef24258aadbe4f57d23b81, type: 3}
-  maxX: 56
 --- !u!114 &5778940377771851370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,3 +63,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblefishSpawner: {fileID: 8525815234646245263}
+--- !u!1001 &1430637121782694444
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3887886872212295405}
+    m_Modifications:
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235786262687185845, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+      propertyPath: m_Name
+      value: Bubblefish1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+--- !u!4 &5297434446394701039 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6511888875216860867, guid: 9f8a7df49bfee4abbb7f979a01c346e9, type: 3}
+  m_PrefabInstance: {fileID: 1430637121782694444}
+  m_PrefabAsset: {fileID: 0}
