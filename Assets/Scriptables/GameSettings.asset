@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialCameraPosition: {x: 0, y: -20, z: -10}
   cameraFollowSpeed: 2
-  cameraOffsetDistance: 2
+  minCameraOffsetDistance: 2
+  maxCameraOffsetDistance: 5
   baseCameraDistance: 5
   acceleration: 350
   maxSpeed: 20
@@ -23,14 +24,15 @@ MonoBehaviour:
   dashDuration: 0.1
   dashCooldown: 2
   <SpawnLayers>k__BackingField:
-  - <MinY>k__BackingField: 21
-    <MaxY>k__BackingField: 32
+  - <MinY>k__BackingField: 42
+    <MaxY>k__BackingField: 64
     <SecondsBetweenSpawns>k__BackingField: 1
-  - <MinY>k__BackingField: 11
-    <MaxY>k__BackingField: 21
+  - <MinY>k__BackingField: 22
+    <MaxY>k__BackingField: 42
     <SecondsBetweenSpawns>k__BackingField: 2
   - <MinY>k__BackingField: 0
-    <MaxY>k__BackingField: 11
+    <MaxY>k__BackingField: 22
     <SecondsBetweenSpawns>k__BackingField: 3
   <FollowSpeed>k__BackingField: 1
   <SecondsPuffedAfterDashEnds>k__BackingField: 1
+  <SwarmRadiusPuffedFactor>k__BackingField: 1.5
