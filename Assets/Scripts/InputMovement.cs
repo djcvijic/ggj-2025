@@ -14,25 +14,16 @@ public class InputMovement
         _rb.drag = Friction;
     }
 
-    public Vector3 HandleMovementFromInput()
+    public void HandleMovementFromInput()
     {
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
-        if (input == Vector2.zero) 
-            return _rb.velocity;
-        
+        if (input == Vector2.zero) return;
+
         Vector3 force = (Vector3)input * Acceleration;
         _rb.AddForce(force * Time.deltaTime);
 
         if (_rb.velocity.magnitude > MaxSpeed)
             _rb.velocity = _rb.velocity.normalized * MaxSpeed;
-
-        return _rb.velocity;
     }
-
-    public void StopMovement()
-    {
-        _rb.velocity = Vector3.zero;
-    }
-    
 }
