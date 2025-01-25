@@ -5,7 +5,7 @@ public class BubblefishManager : MonoBehaviour
 {
     [SerializeField] private BubblefishSpawner bubblefishSpawner;
 
-    public int BubblefishPopped => bubblefishSpawner.BubblefishPopped;
+    public int BubblefishPopped => bubblefishSpawner.BubblefishPoppedCount;
     
     public void Initialize(Player player)
     {

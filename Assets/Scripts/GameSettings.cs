@@ -22,4 +22,5 @@ public class GameSettings : ScriptableObject
     [field: SerializeField] public List<SpawnLayer> SpawnLayers { get; private set; } = new();
     [field: SerializeField] public float FollowSpeed { get; private set; } = 1f;
     [field: SerializeField] public float SecondsPuffedAfterDashEnds { get; private set; } = 1f;
+    [field: SerializeField] public float SwarmRadiusPuffedFactor { get; private set; } = 1.5f;
 }

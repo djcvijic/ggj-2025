@@ -39,6 +39,15 @@ public class Player : MonoBehaviour
         else if (IsPuffed)
             _puffSecondsRemaining -= Time.deltaTime;
 
-        _spriteRenderer.sprite = IsPuffed ? puffedSprite : defaultSprite;
+        if (IsPuffed && _spriteRenderer.sprite != puffedSprite)
+        {
+            _spriteRenderer.sprite = puffedSprite;
+            App.Instance.EventsNotifier.NotifyPuffednessChanged(true);
+        }
+        else if (!IsPuffed && _spriteRenderer.sprite != defaultSprite)
+        {
+            _spriteRenderer.sprite = defaultSprite;
+            App.Instance.EventsNotifier.NotifyPuffednessChanged(false);
+        }
     }
 }

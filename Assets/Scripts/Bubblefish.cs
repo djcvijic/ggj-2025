@@ -9,11 +9,13 @@ public class Bubblefish : MonoBehaviour
     [SerializeField] private Sprite happySprite;
     [SerializeField] private Sprite sadSprite;
     [SerializeField] private SpriteRotator rotator;
+    [SerializeField] private CircleCollider2D collider2d;
 
     private EventsNotifier Notifier => App.Instance.EventsNotifier;
 
     private Rigidbody2D _rigidbody;
     private Func<Vector2> _playerPositionGetter;
+    private float _initialColliderRadius;
 
     public bool IsPopped { get; private set; }
 
@@ -22,6 +24,7 @@ public class Bubblefish : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerPositionGetter = playerPositionGetter;
         rotator.Initialize(() => _playerPositionGetter() - (Vector2)transform.position);
+        _initialColliderRadius = collider2d.radius;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,5 +59,12 @@ public class Bubblefish : MonoBehaviour
         var position = t.position;
         var diff = _playerPositionGetter() - (Vector2)position;
         _rigidbody.MovePosition(position + Time.fixedDeltaTime * App.Instance.GameSettings.FollowSpeed * (Vector3)diff);
+    }
+
+    public void SetPuffed(bool value)
+    {
+        collider2d.radius = value
+            ? _initialColliderRadius * App.Instance.GameSettings.SwarmRadiusPuffedFactor
+            : _initialColliderRadius;
     }
 }

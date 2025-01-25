@@ -16,7 +16,9 @@ public class BubblefishSpawner : MonoBehaviour
 
     private readonly List<Bubblefish> _bubblefishList = new();
 
-    public int BubblefishPopped => _bubblefishList.Count(x => x.IsPopped);
+    private IEnumerable<Bubblefish> BubblefishPopped => _bubblefishList.Where(x => x.IsPopped);
+
+    public int BubblefishPoppedCount => _bubblefishList.Count(x => x.IsPopped);
 
     public void Initialize(Func<Vector2> playerPositionGetter)
     {
@@ -26,6 +28,7 @@ public class BubblefishSpawner : MonoBehaviour
         StartSpawning();
 
         App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
+        App.Instance.EventsNotifier.PuffednessChanged += OnPuffednessChanged;
     }
 
     private void RegisterExistingChildren()
@@ -71,6 +74,14 @@ public class BubblefishSpawner : MonoBehaviour
 
     private void OnBubblefishPopped(Bubblefish bubblefish)
     {
-        Debug.Log($"Total bubblefish popped: {BubblefishPopped}");
+        Debug.Log($"Total bubblefish popped: {BubblefishPoppedCount}");
+    }
+
+    private void OnPuffednessChanged(bool value)
+    {
+        foreach (var bubblefish in BubblefishPopped)
+        {
+            bubblefish.SetPuffed(value);
+        }
     }
 }
