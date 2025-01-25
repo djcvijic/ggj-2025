@@ -18,15 +18,15 @@ public class SpriteRotator : MonoBehaviour
 
     private void Update()
     {
+        UpdateDirection();
+    }
+
+    private void UpdateDirection()
+    {
         if (_getDirection == null)
             return;
 
         var direction = _getDirection();
-        SetDirection(direction);
-    }
-
-    private void SetDirection(Vector2 direction)
-    {
         if (direction.magnitude == 0)
             return;
 
