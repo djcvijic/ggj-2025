@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4e5683fc4647dbba7403883f3821a5, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  acceleration: 30
-  maxSpeed: 8
-  friction: 10
+  cameraFollowSpeed: 4
+  cameraOffsetDistance: 2.5
+  acceleration: 350
+  maxSpeed: 20
+  friction: 4.5
+  dashSpeed: 2000
+  dashDuration: 0.1
+  dashCooldown: 2
+  <SecondsBetweenSpawns>k__BackingField: 1
