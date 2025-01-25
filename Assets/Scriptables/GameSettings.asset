@@ -113,3 +113,5 @@ MonoBehaviour:
   <SwarmRadiusPuffedFactor>k__BackingField: 1.5
   <MaxX>k__BackingField: 56
   <PlayerSpawnY>k__BackingField: 50
+  <MaxBubblefishInWorld>k__BackingField: 200
+  <MaxPoppedBubblefish>k__BackingField: 9999

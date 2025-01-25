@@ -65,7 +65,8 @@ public class BubblefishSpawner : MonoBehaviour
 
     private bool MaxBubblefishPopped()
     {
-        return BubblefishPoppedCount >= App.Instance.GameSettings.MaxPoppedBubblefish;
+        return BubblefishPoppedCount >= App.Instance.GameSettings.MaxPoppedBubblefish
+               || BubblefishPoppedCount >= App.Instance.GameSettings.MaxBubblefishInWorld;
     }
 
     private void StartSpawning()
