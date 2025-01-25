@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameSettings: {fileID: 11400000, guid: 5df4881a73d09a040a9a0fa7d2ee9f83, type: 2}
   playerPrefab: {fileID: 4734823918294181014, guid: ae81eb1c6b57224418aca69487936811, type: 3}
-  bubblefishManager: {fileID: 499728655}
+  <BubblefishManager>k__BackingField: {fileID: 499728655}
   appCanvas: {fileID: 1432262126}
 --- !u!4 &115339116
 Transform:

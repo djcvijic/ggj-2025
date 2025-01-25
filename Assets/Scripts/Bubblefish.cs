@@ -10,11 +10,12 @@ public class Bubblefish : MonoBehaviour
     [SerializeField] private Sprite sadSprite;
     [SerializeField] private SpriteRotator rotator;
 
-    public EventsNotifier Notifier => App.Instance.EventsNotifier;
+    private EventsNotifier Notifier => App.Instance.EventsNotifier;
 
     private Rigidbody2D _rigidbody;
     private Func<Vector2> _playerPositionGetter;
-    private bool _popped;
+
+    public bool IsPopped { get; private set; }
 
     public void Initialize(Func<Vector2> playerPositionGetter)
     {
@@ -25,7 +26,7 @@ public class Bubblefish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_popped)
+        if (IsPopped)
             return;
 
         var player = other.GetComponent<Player>();
@@ -35,7 +36,7 @@ public class Bubblefish : MonoBehaviour
 
     private void Pop()
     {
-        _popped = true;
+        IsPopped = true;
         bubble.gameObject.SetActive(false);
         fish.sprite = happySprite;
         Notifier.NotifyBubblefishPopped(this);
@@ -48,7 +49,7 @@ public class Bubblefish : MonoBehaviour
 
     private void Follow()
     {
-        if (!_popped)
+        if (!IsPopped)
             return;
 
         var t = transform;
