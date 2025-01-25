@@ -5,6 +5,8 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Game Settings")]
 public class GameSettings : ScriptableObject
 {
+
+    public Vector3 initialCameraPosition = new Vector3(0, -11, -10);
     public float cameraFollowSpeed = 30f;
     public float cameraOffsetDistance = 8f;
     public float baseCameraDistance = 7f;
