@@ -18,4 +18,9 @@ public class BubblefishManager : MonoBehaviour
     {
         bubblefishSpawner.Initialize(() => player.transform.position);
     }
+
+    public void RewardBubblefish(int number)
+    {
+        bubblefishSpawner.PopFish(number);
+    }
 }

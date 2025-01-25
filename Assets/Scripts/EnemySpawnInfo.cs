@@ -15,4 +15,5 @@ public class EnemySpawnInfo
     [field: SerializeField] public int Damage { get; private set; } = 1;
     [field: SerializeField] public int MaxHealth { get; private set; } = 1;
     [field: SerializeField] public int RequiredBubblefishToDamage { get; private set; } = 20;
+    [field: SerializeField] public int KillReward { get; private set; } = 5;
 }

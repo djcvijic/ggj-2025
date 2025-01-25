@@ -36,17 +36,6 @@ public class BubblefishSpawner : MonoBehaviour
         DebugPop10Fish();
     }
 
-    private void DebugPop10Fish()
-    {
-        if (!Input.GetKeyDown(KeyCode.F))
-            return;
-
-        foreach (var bubblefish in _bubblefishList.Where(x => !x.IsPopped).Take(10))
-        {
-            bubblefish.Pop();
-        }
-    }
-
     private void RegisterExistingChildren()
     {
         foreach (Transform child in transform)
@@ -108,5 +97,23 @@ public class BubblefishSpawner : MonoBehaviour
         {
             bubblefish.SetPuffed(value);
         }
+    }
+    
+    
+    
+    public void PopFish(int number)
+    {
+        foreach (var bubblefish in _bubblefishList.Where(x => !x.IsPopped).Take(number))
+        {
+            bubblefish.Pop();
+        }
+    }
+
+    private void DebugPop10Fish()
+    {
+        if (!Input.GetKeyDown(KeyCode.F))
+            return;
+
+        PopFish(10);
     }
 }

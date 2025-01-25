@@ -11,7 +11,8 @@ public class Enemy : MonoBehaviour
     private int _remainingHealth;
 
     private bool IsDead => _remainingHealth <= 0;
-
+    private int BubblefishCollected => App.Instance.BubblefishManager.BubblefishPopped;
+    
     public void Initialize(Func<Vector2> playerPositionGetter, EnemySpawnInfo info)
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -31,11 +32,22 @@ public class Enemy : MonoBehaviour
             CollideWithPlayer();
     }
 
-    // TODO check if player has collected enough bubblefish, if not damage player instead
     private void CollideWithPlayer()
     {
         Debug.Log("Collided with enemy: " + gameObject.name);
-        _remainingHealth--;
+        if (BubblefishCollected >= _info.RequiredBubblefishToDamage)
+        {
+            _remainingHealth--;
+        }
+        else
+        {
+            // TODO - Destroy a certain number of bubble fishes the player collected - enemy damage can be defined in game settings
+        }
+
+        if (_remainingHealth <= 0)
+        {
+            DestroyEnemy();
+        }
     }
 
     private void FixedUpdate()
@@ -61,5 +73,11 @@ public class Enemy : MonoBehaviour
     private bool ShouldFollowPlayer(Vector2 diff)
     {
         return diff.magnitude < _info.AggroRange;
+    }
+
+    private void DestroyEnemy()
+    {
+        gameObject.SetActive(false);
+        App.Instance.BubblefishManager.RewardBubblefish(_info.KillReward);
     }
 }
