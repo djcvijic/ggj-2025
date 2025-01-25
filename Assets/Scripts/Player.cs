@@ -10,6 +10,12 @@ public class Player : MonoBehaviour
 
      private Rigidbody2D _rb;
 
+     private float _puffSecondsRemaining;
+
+     private bool IsDashing => playerMovement is { IsDashing: true };
+
+     public bool IsPuffed => IsDashing || _puffSecondsRemaining > 0;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -20,5 +26,14 @@ public class Player : MonoBehaviour
     private void Update()
     {
         playerMovement.Update();
+        UpdatePuffedness();
+    }
+
+    private void UpdatePuffedness()
+    {
+        if (IsDashing)
+            _puffSecondsRemaining = App.Instance.GameSettings.SecondsPuffedAfterDashEnds;
+        else if (IsPuffed)
+            _puffSecondsRemaining -= Time.deltaTime;
     }
 }

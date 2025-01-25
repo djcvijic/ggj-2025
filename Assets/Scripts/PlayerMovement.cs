@@ -10,6 +10,8 @@ public class PlayerMovement
     private Camera _camera;
     private Rigidbody2D _rb;
 
+    public bool IsDashing => _dashMovement is { IsDashing: true };
+
     public PlayerMovement(Player player)
     {
         _camera = Camera.main;

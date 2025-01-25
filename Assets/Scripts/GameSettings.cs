@@ -18,4 +18,5 @@ public class GameSettings : ScriptableObject
     
     [field: SerializeField] public float SecondsBetweenSpawns { get; private set; } = 1f;
     [field: SerializeField] public float FollowSpeed { get; private set; } = 1f;
+    [field: SerializeField] public float SecondsPuffedAfterDashEnds { get; private set; } = 1f;
 }

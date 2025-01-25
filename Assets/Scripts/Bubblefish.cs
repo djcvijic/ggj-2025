@@ -29,7 +29,7 @@ public class Bubblefish : MonoBehaviour
             return;
 
         var player = other.GetComponent<Player>();
-        if (player != null)
+        if (player != null && player.IsPuffed)
             Pop();
     }
 
