@@ -56,6 +56,7 @@ public class DashMovement
         _dashTimer = DashDuration;
 
         IsDashing = true;
+        App.Instance.AudioManager.Dash();
     }
 
     public void HandleMovementFromDash()

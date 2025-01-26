@@ -99,6 +99,7 @@ public class BubblefishSpawner : MonoBehaviour
     private void OnBubblefishPopped(Bubblefish bubblefish)
     {
         Debug.Log($"Total bubblefish popped: {BubblefishPoppedCount}");
+        App.Instance.AudioManager.BubblePop();
     }
 
     private void OnPuffednessChanged(bool value)
