@@ -43,7 +43,12 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            App.Instance.BubblefishManager.DamageBubblefish(_info.Damage);
+
+            if (!player.IsGraced)
+            {
+                App.Instance.BubblefishManager.DamageBubblefish(_info.Damage);
+                player.TriggerGracePeriod();
+            }
         }
 
         if (_remainingHealth <= 0)

@@ -5,6 +5,7 @@ public class EventsNotifier
     public event Action<Bubblefish> BubblefishPopped;
     public event Action<Bubblefish> BubblefishDied;
     public event Action<bool> PuffednessChanged;
+    public event Action<bool> GraceChanged;
 
     public event Action<int> PlayerDamaged; 
 
@@ -15,7 +16,8 @@ public class EventsNotifier
     
     public void NotifyPuffednessChanged(bool value)
         => PuffednessChanged?.Invoke(value);
-    
+    public void NotifyGraceChanged(bool value)
+        => GraceChanged?.Invoke(value);
     public void NotifyPlayerDamaged(int damage)
         => PlayerDamaged?.Invoke(damage);
 }
