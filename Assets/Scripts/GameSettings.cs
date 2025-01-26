@@ -49,5 +49,7 @@ public class GameSettings : ScriptableObject
     [field: SerializeField] public int MaxPoppedBubblefish { get; private set; } = 9999;
 
     [field: Header("Enemies")]
+    [field: SerializeField] public int ChaseDurationOrca { get; private set; } = 8;
+    [field: SerializeField] public int ChaseCooldownOrca { get; private set; } = 5;
     [field: SerializeField] public List<EnemySpawnInfo> EnemySpawns { get; private set; } = new();
 }
