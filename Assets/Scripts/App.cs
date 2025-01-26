@@ -12,6 +12,7 @@ public class App : MonoBehaviour
     [field: SerializeField] public BubblefishManager BubblefishManager { get; private set; }
     [field: SerializeField] public EnemyManager EnemyManager { get; private set; }
     [field: SerializeField] public DialogSystem DialogSystem { get; private set; }
+    [field: SerializeField] public BubblesAudioManager AudioManager { get; private set; }
     [SerializeField] private AppCanvas appCanvas;
 
     public Player Player { get; private set; }
