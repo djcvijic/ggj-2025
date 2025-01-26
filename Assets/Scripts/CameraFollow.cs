@@ -34,6 +34,7 @@ public class CameraFollow : MonoBehaviour
         _camera.transform.position = InitialCameraPosition;
 
         App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
+        App.Instance.EventsNotifier.BubblefishDied += OnBubblefishDied;
 
         return this;
     }

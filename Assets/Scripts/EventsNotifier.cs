@@ -11,7 +11,7 @@ public class EventsNotifier
     public void NotifyBubblefishPopped(Bubblefish bubblefish) 
         => BubblefishPopped?.Invoke(bubblefish);
     public void NotifyBubblefishDied(Bubblefish bubblefish) 
-        => BubblefishPopped?.Invoke(bubblefish);
+        => BubblefishDied?.Invoke(bubblefish);
     
     public void NotifyPuffednessChanged(bool value)
         => PuffednessChanged?.Invoke(value);
