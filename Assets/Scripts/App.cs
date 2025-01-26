@@ -33,5 +33,6 @@ public class App : MonoBehaviour
         BubblefishManager.Initialize(Player);
         EnemyManager.Initialize(() => Player.transform.position);
         DialogSystem.Initialize();
+        AudioManager.StartMusic();
     }
 }

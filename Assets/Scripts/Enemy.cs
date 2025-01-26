@@ -73,5 +73,9 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
         App.Instance.BubblefishManager.RewardBubblefish(Info.KillReward);
+        if (IsBoss)
+            App.Instance.AudioManager.BossKill();
+        else
+            App.Instance.AudioManager.EnemyKill();
     }
 }
