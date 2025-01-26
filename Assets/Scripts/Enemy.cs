@@ -4,24 +4,26 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
-    private Func<Vector2> _playerPositionGetter;
-    private EnemySpawnInfo _info;
+    public Rigidbody2D Rigidbody { get; private set; }
+    public EnemySpawnInfo Info { get; private set; }
 
     private int _remainingHealth;
 
-    private bool IsDead => _remainingHealth <= 0;
+    public bool IsDead => _remainingHealth <= 0;
     private int BubblefishCollected => App.Instance.BubblefishManager.BubblefishPopped;
     private bool _isBoss;
-    
+
+    private EnemyBehaviour _behaviour;
+
     public void Initialize(Func<Vector2> playerPositionGetter, EnemySpawnInfo info)
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _playerPositionGetter = playerPositionGetter;
-        _info = info;
+        Rigidbody = GetComponent<Rigidbody2D>();
+        Info = info;
         _remainingHealth = info.MaxHealth;
         transform.localScale *= info.Scale;
         _isBoss = GetComponent<Boss>() != null;
+        _behaviour = Instantiate(Info.Behaviour);
+        _behaviour.Initialize(this, playerPositionGetter);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -37,16 +39,15 @@ public class Enemy : MonoBehaviour
     private void CollideWithPlayer(Player player)
     {
         Debug.Log("Collided with enemy: " + gameObject.name);
-        if (BubblefishCollected >= _info.RequiredBubblefishToDamage && player.IsPuffed)
+        if (BubblefishCollected >= Info.RequiredBubblefishToDamage && player.IsPuffed)
         {
             _remainingHealth--;
         }
         else
         {
-
             if (!player.IsGraced)
             {
-                App.Instance.BubblefishManager.DamageBubblefish(_info.Damage);
+                App.Instance.BubblefishManager.DamageBubblefish(Info.Damage);
                 player.TriggerGracePeriod();
             }
         }
@@ -59,33 +60,13 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Follow();
-    }
-
-    private void Follow()
-    {
-        if (IsDead)
-            return;
-
-        var t = transform;
-        var position = t.position;
-        var diff = _playerPositionGetter() - (Vector2)position;
-        if (!ShouldFollowPlayer(diff))
-            return;
-
-        var direction = diff.normalized;
-        _rigidbody.MovePosition(position + Time.fixedDeltaTime * _info.MoveSpeed * (Vector3)direction);
-    }
-
-    private bool ShouldFollowPlayer(Vector2 diff)
-    {
-        return diff.magnitude < _info.AggroRange;
+        _behaviour.Execute(Time.fixedDeltaTime);
     }
 
     private void DestroyEnemy()
     {
         gameObject.SetActive(false);
-        App.Instance.BubblefishManager.RewardBubblefish(_info.KillReward);
+        App.Instance.BubblefishManager.RewardBubblefish(Info.KillReward);
 
         if (_isBoss)
         {
