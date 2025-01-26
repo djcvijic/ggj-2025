@@ -39,12 +39,14 @@ public class DialogSystem : MonoBehaviour
     private void HideCurrentMessageAndAdvance()
     {
         CurrentMessage.Hide();
-        if (!_allMessages.Any(x => x.Index > _currentIndex))
+        if (_allMessages.Any(x => x.Index > _currentIndex))
+        {
+            _currentIndex = _allMessages.First(x => x.Index > _currentIndex).Index;
+        }
+        else
         {
             App.Instance.GameWin.TriggerWinGame();
         }
-
-        _currentIndex = _allMessages.First(x => x.Index > _currentIndex).Index;
     }
 
     private static bool IsConditionMet(DialogCondition condition)
