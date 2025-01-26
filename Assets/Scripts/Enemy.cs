@@ -79,5 +79,6 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
         App.Instance.BubblefishManager.RewardBubblefish(Info.KillReward);
+        App.Instance.EnemyManager.SpawnEnemies(Info);
     }
 }

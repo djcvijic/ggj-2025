@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = System.Random;
 
@@ -26,9 +27,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void SpawnEnemies(EnemySpawnInfo info)
+    public void SpawnEnemies(EnemySpawnInfo info)
     {
-        for (var i = 0; i < info.Count; i++)
+        var existingCount = FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .Count(x => x.Info == info && !x.IsDead);
+        for (var i = 0; i < info.Count - existingCount; i++)
         {
             var prefab = info.Prefab;
             var randomPosition = new Vector3(_random.Next(-MaxX, MaxX), _random.Next(info.MinY, info.MaxY), 0);
