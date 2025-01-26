@@ -31,7 +31,9 @@ public class DialogSystem : MonoBehaviour
         }
 
         if (CurrentMessage != null)
+        {
             TryShowCurrentMessage();
+        }
     }
 
     private void HideCurrentMessageAndAdvance()
