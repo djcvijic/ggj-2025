@@ -13,6 +13,8 @@ public class PlayerStatusBars : MonoBehaviour
     [SerializeField] private RectTransform bubblefishProgressBarHolder;
     
     [SerializeField] private DepthIndicator depthIndicator;
+
+    private bool _notifiedOnce = false;
     
     private int TotalBubblefishesPopped => App.Instance.BubblefishManager.BubblefishPopped;
 
@@ -27,6 +29,13 @@ public class PlayerStatusBars : MonoBehaviour
     private void OnBubblefishPopped(Bubblefish bubblefish)
     {
         bubblefishNumberText.text = TotalBubblefishesPopped.ToString();
+
+        if (TotalBubblefishesPopped >= 10 && !_notifiedOnce)
+        {
+            _notifiedOnce = true;
+            Debug.Log("PASSED FIRST THRESHOLD");
+            App.Instance.EventsNotifier.NotifyFirstFishSizeRequirement();
+        }
     }
 
     private void Update()
