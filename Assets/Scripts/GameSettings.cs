@@ -31,6 +31,9 @@ public class GameSettings : ScriptableObject
     public float minDashCooldown = 2f;
     public float maxDashCooldown = 4f;
     public AnimationCurve dashCooldownCurve;
+
+    public float gracePeriod = 1.5f;
+    public float graceBlinkInterval = 0.1f;
     
     [field: Header("Bubblefish")]
     [field: SerializeField] public List<SpawnLayer> SpawnLayers { get; private set; } = new();

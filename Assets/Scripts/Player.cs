@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -8,21 +9,22 @@ public class Player : MonoBehaviour
     [SerializeField] private Sprite puffedSprite;
 
     private PlayerMovement playerMovement;
-
+    private PlayerGrace playerGrace;
+    
     private SpriteRenderer _spriteRenderer;
-    private Rigidbody2D _rb;
-
+    
     private float _puffSecondsRemaining;
+    private float _gracedSecondsRemaining;
 
     private bool IsDashing => playerMovement is { IsDashing: true };
-
     public bool IsPuffed => IsDashing || _puffSecondsRemaining > 0;
+    public bool IsGraced => playerGrace.IsGraced;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _rb = GetComponent<Rigidbody2D>();
         playerMovement = new PlayerMovement(this);
+        playerGrace = gameObject.AddComponent<PlayerGrace>();
     }
 
 
@@ -42,6 +44,7 @@ public class Player : MonoBehaviour
         if (IsPuffed && _spriteRenderer.sprite != puffedSprite)
         {
             _spriteRenderer.sprite = puffedSprite;
+            
             App.Instance.EventsNotifier.NotifyPuffednessChanged(true);
         }
         else if (!IsPuffed && _spriteRenderer.sprite != defaultSprite)
@@ -50,4 +53,6 @@ public class Player : MonoBehaviour
             App.Instance.EventsNotifier.NotifyPuffednessChanged(false);
         }
     }
+
+  
 }
