@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 6511888875216860867}
   - component: {fileID: 662024786317766090}
   - component: {fileID: 2097432814364576413}
+  - component: {fileID: 4174312026413382666}
   m_Layer: 0
   m_Name: Bubblefish1
   m_TagString: Untagged
@@ -308,6 +309,7 @@ MonoBehaviour:
   rotator: {fileID: 6865774858750354332}
   collider2d: {fileID: 6493543307038299797}
   bubbleExplosion: {fileID: 8268643055119827767}
+  blinkingEffect: {fileID: 4174312026413382666}
 --- !u!50 &2097432814364576413
 Rigidbody2D:
   serializedVersion: 4
@@ -335,6 +337,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4174312026413382666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235786262687185845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8219a519f46f4a87826baa1ba73daffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 9191923293674057150}
 --- !u!1001 &1475124925862018793
 PrefabInstance:
   m_ObjectHideFlags: 0

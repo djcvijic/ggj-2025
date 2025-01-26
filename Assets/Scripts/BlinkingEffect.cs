@@ -2,7 +2,7 @@
 
 public class BlinkingEffect : MonoBehaviour
 {
-    private SpriteRenderer _spriteRenderer;
+    [SerializeField]private SpriteRenderer spriteRenderer;
     private Coroutine _blinkingCoroutine;
     private bool _isBlinking;
 
@@ -10,10 +10,13 @@ public class BlinkingEffect : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        if (_spriteRenderer == null)
+        if (spriteRenderer == null)
         {
-            Debug.LogError("BlinkingEffect requires a SpriteRenderer component on the same GameObject.");
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            if (spriteRenderer == null)
+            {
+                Debug.LogError("BlinkingEffect requires a SpriteRenderer component on the same GameObject.");
+            }
         }
     }
 
@@ -51,11 +54,11 @@ public class BlinkingEffect : MonoBehaviour
 
     private void SetSpriteAlpha(float alpha)
     {
-        if (_spriteRenderer != null)
+        if (spriteRenderer != null)
         {
-            Color color = _spriteRenderer.color;
+            Color color = spriteRenderer.color;
             color.a = alpha;
-            _spriteRenderer.color = color;
+            spriteRenderer.color = color;
         }
     }
 }
