@@ -9,7 +9,7 @@ public class DashMovement
     {
         get
         {
-            float normalizedPercentage = Mathf.Clamp01(App.Instance.BubblefishManager.BubblefishPoppedPercentage);
+            float normalizedPercentage = Mathf.Clamp01(App.Instance.BubblefishManager.BubblefishPoppedPercentage / 100f);
             float curveValue = App.Instance.GameSettings.dashSpeedCurve.Evaluate(normalizedPercentage);
             return Mathf.Lerp(App.Instance.GameSettings.minDashSpeed, App.Instance.GameSettings.maxDashSpeed, curveValue);
         }
@@ -19,7 +19,7 @@ public class DashMovement
     {
         get
         {
-            float normalizedPercentage = Mathf.Clamp01(App.Instance.BubblefishManager.BubblefishPoppedPercentage);
+            float normalizedPercentage = Mathf.Clamp01(App.Instance.BubblefishManager.BubblefishPoppedPercentage / 100f);
             float curveValue = App.Instance.GameSettings.dashCooldownCurve.Evaluate(normalizedPercentage);
             return Mathf.Lerp(App.Instance.GameSettings.minDashCooldown, App.Instance.GameSettings.maxDashCooldown, curveValue);
         }
