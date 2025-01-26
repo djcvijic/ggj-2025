@@ -31,7 +31,7 @@ public class DepthIndicator : MonoBehaviour
         float sliderValue = (float)depth / _maxDepth;
 
         depthSlider.value = sliderValue;
-        depthNumberText.text = "-" + depth + "m";
+        depthNumberText.text = depth + "m";
     }
 
     
