@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class App : MonoSingleton<App>
+public class App : MonoBehaviour
 {
+    public static App Instance;
+    
     public GameSettings GameSettings;
     public EventsNotifier EventsNotifier;
     public GameWin GameWin;
@@ -16,9 +18,9 @@ public class App : MonoSingleton<App>
 
     public bool ShouldPauseAllMovement => DialogSystem.IsMessageShown;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
+        Instance = this;
 
         EventsNotifier = new EventsNotifier();
         GameWin = new GameWin();
