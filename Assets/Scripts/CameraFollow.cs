@@ -67,6 +67,11 @@ public class CameraFollow : MonoBehaviour
         _camera.orthographicSize = CameraDistance;
     }
 
+    private void OnBubblefishDied(Bubblefish bubblefish)
+    {
+        _camera.orthographicSize = CameraDistance;
+    }
+    
     public static CameraFollow InstantiateCameraFollowObj()
     {
         var cameraFollow = new GameObject("Camera Follow").AddComponent<CameraFollow>();

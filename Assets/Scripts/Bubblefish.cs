@@ -77,6 +77,7 @@ public class Bubblefish : MonoBehaviour
 
     public void Kill()
     {
+        App.Instance.EventsNotifier.NotifyBubblefishDied(this);
         Destroy(gameObject);
     }
 }
