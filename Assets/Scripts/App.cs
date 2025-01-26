@@ -11,7 +11,7 @@ public class App : MonoSingleton<App>
     [field: SerializeField] public EnemyManager EnemyManager { get; private set; }
     [SerializeField] private AppCanvas appCanvas;
 
-    private Player player;
+    public Player Player { get; private set; }
 
     protected override void Awake()
     {
@@ -20,13 +20,12 @@ public class App : MonoSingleton<App>
         EventsNotifier = new EventsNotifier();
         GameWin = new GameWin();
 
+        Player = Instantiate(playerPrefab, GameSettings.PlayerSpawnY * Vector3.up, Quaternion.identity);
+
         appCanvas.Initialize();
-        
-        player = Instantiate(playerPrefab, GameSettings.PlayerSpawnY * Vector3.up, Quaternion.identity);
-        
-        CameraFollow.InstantiateCameraFollowObj().Initialize(player.transform, player.GetComponent<Rigidbody2D>());
-        BubblefishManager.Initialize(player);
-        EnemyManager.Initialize(() => player.transform.position);
+        CameraFollow.InstantiateCameraFollowObj().Initialize(Player.transform, Player.GetComponent<Rigidbody2D>());
+        BubblefishManager.Initialize(Player);
+        EnemyManager.Initialize(() => Player.transform.position);
         
     }
 }

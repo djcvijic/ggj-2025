@@ -13,7 +13,6 @@ public class PlayerStatusBars : MonoBehaviour
     [SerializeField] private RectTransform bubblefishProgressBarHolder;
     
     [SerializeField] private DepthIndicator depthIndicator;
-    [SerializeField] private RectTransform depthHolder;
     
     private int TotalBubblefishesPopped => App.Instance.BubblefishManager.BubblefishPopped;
 
@@ -22,6 +21,7 @@ public class PlayerStatusBars : MonoBehaviour
         App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
         
         SetUpFishIndicatorPositions();
+        depthIndicator.Initialize();
     }
 
     private void OnBubblefishPopped(Bubblefish bubblefish)
