@@ -141,7 +141,7 @@ MonoBehaviour:
   <SwarmRadiusPuffedFactor>k__BackingField: 1.5
   <MaxX>k__BackingField: 56
   <PlayerSpawnY>k__BackingField: 50
-  <MaxBubblefishInWorld>k__BackingField: 250
+  <MaxBubblefishInWorld>k__BackingField: 160
   <MaxPoppedBubblefish>k__BackingField: 120
   <EnemySpawns>k__BackingField:
   - <Count>k__BackingField: 5
@@ -151,7 +151,7 @@ MonoBehaviour:
     <Scale>k__BackingField: 0.5
     <MoveSpeed>k__BackingField: 0.7
     <AggroRange>k__BackingField: 20
-    <Damage>k__BackingField: 1
+    <Damage>k__BackingField: 2
     <MaxHealth>k__BackingField: 1
     <RequiredBubblefishToDamage>k__BackingField: 10
     <KillReward>k__BackingField: 2
