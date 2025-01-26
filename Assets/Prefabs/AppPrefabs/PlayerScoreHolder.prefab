@@ -914,6 +914,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblefishNumberText: {fileID: 1177722483872764776}
+  bubblefishProgressBarFill: {fileID: 2839192742407258077}
+  progressBarFishIndicators:
+  - {fileID: 4087069340914150488}
+  - {fileID: 4205143095040061906}
+  - {fileID: 437529417135212238}
+  - {fileID: 801300326704179050}
+  - {fileID: 3357933395378758709}
+  bubblefishProgressBarHolder: {fileID: 6066283203307101184}
+  depthIndicator: {fileID: 5591325243663408767}
+  depthHolder: {fileID: 7783928535466276766}
 --- !u!1 &7990342208194363754
 GameObject:
   m_ObjectHideFlags: 0
