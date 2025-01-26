@@ -143,6 +143,8 @@ MonoBehaviour:
   <PlayerSpawnY>k__BackingField: 50
   <MaxBubblefishInWorld>k__BackingField: 160
   <MaxPoppedBubblefish>k__BackingField: 120
+  <ChaseDurationOrca>k__BackingField: 8
+  <ChaseCooldownOrca>k__BackingField: 5
   <EnemySpawns>k__BackingField:
   - <Count>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 7f96d96340af4452c991cb7d795e60f1, type: 3}
@@ -179,7 +181,7 @@ MonoBehaviour:
     <MaxHealth>k__BackingField: 2
     <RequiredBubblefishToDamage>k__BackingField: 50
     <KillReward>k__BackingField: 7
-    <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
+    <Behaviour>k__BackingField: {fileID: 11400000, guid: a431509f3d7c9484a9e35dbaae2333db, type: 2}
   - <Count>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 39749befa96b40049bd5602086fdb074, type: 3}
     <MinY>k__BackingField: -44
