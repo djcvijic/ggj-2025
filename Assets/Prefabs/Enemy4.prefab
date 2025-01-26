@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7890948000021780073}
-  - component: {fileID: 869100761110021024}
+  - component: {fileID: 8525616186915907532}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -25,15 +25,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5425709281081290163}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.0882858, w: 0.9960952}
-  m_LocalPosition: {x: -0.15, y: 0.59, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.72202367, w: 0.6918684}
+  m_LocalPosition: {x: 0.2, y: -0.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 855219086808256969}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.13}
---- !u!60 &869100761110021024
-PolygonCollider2D:
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 92.444}
+--- !u!70 &8525616186915907532
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -65,30 +65,8 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 8.2754545, y: 0.3616929}
-      - {x: 9.181884, y: -2.5808847}
-      - {x: 3.8728366, y: -6.0924325}
-      - {x: 0.9505486, y: -6.020532}
-      - {x: 0.083963454, y: -8.377069}
-      - {x: -1.404443, y: -5.821858}
-      - {x: -3.6346805, y: -6.899183}
-      - {x: -4.339791, y: -0.7475405}
-      - {x: -6.561309, y: -0.22572756}
-      - {x: -6.610132, y: 1.8823786}
-      - {x: -2.7060485, y: 6.7351346}
-      - {x: 3.2347407, y: 4.2616596}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 4.06, y: 17.28}
+  m_Direction: 0
 --- !u!1 &6833583482954119433
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +140,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19e60ae7a9ec249909113d6219ceacae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24bf41192f5c74a8d8ed37863fa614eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,7 +162,6 @@ GameObject:
   - component: {fileID: 855219086808256969}
   - component: {fileID: 3831175173090986537}
   - component: {fileID: 8758591526866471735}
-  - component: {fileID: 6967497415319226668}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Untagged
@@ -246,17 +223,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1b402a10d6b4a95a95777436a5e2c9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6967497415319226668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8563081990913782072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bdb9fd7ab294e48a9ade14c30398153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
