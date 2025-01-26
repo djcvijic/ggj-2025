@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
         playerGrace = gameObject.AddComponent<PlayerGrace>();
     }
 
+    private void Start()
+    {
+        App.Instance.EventsNotifier.GraceChanged += OnGraceChange;
+    }
+
 
     private void Update()
     {
@@ -54,5 +59,14 @@ public class Player : MonoBehaviour
         }
     }
 
-  
+    private void OnGraceChange(bool isGraced)
+    {
+        if (isGraced == false)
+        {
+            playerGrace.GetComponent<CircleCollider2D>().enabled = false;
+            playerGrace.GetComponent<CircleCollider2D>().enabled = true;
+        }
+    }
+
+    public void TriggerGracePeriod() => playerGrace.TriggerGracePeriod();
 }

@@ -20,11 +20,13 @@ public class PlayerGrace : MonoBehaviour
     {
         _state = GraceState.Graced;
         _gracedSecondsRemaining = GraceDuration;
-        App.Instance.EventsNotifier.NotifyPuffednessChanged(true);
+        App.Instance.EventsNotifier.NotifyGraceChanged(true);
     }
 
     private void UpdateGracePeriod()
     {
+        print("Graced:" + IsGraced);
+        
         if (!IsGraced) 
             return;
         
@@ -42,8 +44,8 @@ public class PlayerGrace : MonoBehaviour
 
     private void FinishGracePeriod()
     {
-        if (_gracedSecondsRemaining <0 )
-            _state = GraceState.NotGraced;
+        _state = GraceState.NotGraced;
+        App.Instance.EventsNotifier.NotifyGraceChanged(false);
     }
 
     
