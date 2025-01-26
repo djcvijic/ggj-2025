@@ -45,6 +45,12 @@ public class Enemy : MonoBehaviour
         {
             _remainingHealth--;
             _hitRegistrationEffect.ToggleColor();
+            if (!IsDead)
+                App.Instance.AudioManager.DamageEnemy();
+            else if (IsBoss)
+                App.Instance.AudioManager.BossKill();
+            else
+                App.Instance.AudioManager.EnemyKill();
         }
         else
         {
@@ -73,9 +79,5 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
         App.Instance.BubblefishManager.RewardBubblefish(Info.KillReward);
-        if (IsBoss)
-            App.Instance.AudioManager.BossKill();
-        else
-            App.Instance.AudioManager.EnemyKill();
     }
 }

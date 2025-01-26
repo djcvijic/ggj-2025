@@ -29,7 +29,6 @@ public class BubblefishSpawner : MonoBehaviour
 
         App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
         App.Instance.EventsNotifier.PuffednessChanged += OnPuffednessChanged;
-        App.Instance.EventsNotifier.PlayerDamaged += DamageFish;
         App.Instance.EventsNotifier.GraceChanged += OnGraceChanged;
 
     }
@@ -129,6 +128,8 @@ public class BubblefishSpawner : MonoBehaviour
             _bubblefishList.Remove(bubblefish);
             bubblefish.Kill();
         }
+
+        App.Instance.AudioManager.DamageTaken();
     }
 
 
