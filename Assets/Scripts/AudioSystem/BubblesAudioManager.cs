@@ -17,6 +17,16 @@ public class BubblesAudioManager : AudioManager
 
     private bool _musicPlaying;
 
+    private void Awake()
+    {
+        App.Instance.EventsNotifier.PassedFishSizeRequirement += UnlockNewDepth;
+    }
+
+    private void OnDestroy()
+    {
+        App.Instance.EventsNotifier.PassedFishSizeRequirement -= UnlockNewDepth;
+    }
+
     public void StartMusic()
     {
         StopAudio(musicLoop);

@@ -34,7 +34,7 @@ public class PlayerStatusBars : MonoBehaviour
         {
             _notifiedOnce = true;
             Debug.Log("PASSED FIRST THRESHOLD");
-            App.Instance.EventsNotifier.NotifyFirstFishSizeRequirement();
+            App.Instance.EventsNotifier.NotifyPassedFishSizeRequirement();
         }
     }
 
