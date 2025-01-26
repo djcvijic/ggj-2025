@@ -12,7 +12,6 @@ public class EnemyManager : MonoBehaviour
     private Func<Vector2> _playerPositionGetter;
 
     private readonly List<Enemy> _enemyList = new();
-
     public void Initialize(Func<Vector2> playerPositionGetter)
     {
         _playerPositionGetter = playerPositionGetter;
@@ -42,5 +41,10 @@ public class EnemyManager : MonoBehaviour
     {
         enemy.Initialize(_playerPositionGetter, info);
         _enemyList.Add(enemy);
+    }
+
+    public bool EnemyAlive(Func<Enemy, bool> predicate)
+    {
+        return _enemyList.Exists(x => !x.IsDead && predicate(x));
     }
 }

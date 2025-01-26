@@ -37,6 +37,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (App.Instance.ShouldPauseAllMovement)
+            return;
+
         playerMovement.Update();
         UpdatePuffedness();
     }

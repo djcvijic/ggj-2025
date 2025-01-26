@@ -27,7 +27,10 @@ public class GameSettings : ScriptableObject
     public float maxDashSpeed = 4000f;
     public AnimationCurve dashSpeedCurve;
     
-    public float dashDuration = 0.1f;
+    public float minDashDuration = 0.1f;
+    public float maxDashDuration = 0.4f;
+    public AnimationCurve dashDurationCurve;
+    
     public float minDashCooldown = 2f;
     public float maxDashCooldown = 4f;
     public AnimationCurve dashCooldownCurve;
