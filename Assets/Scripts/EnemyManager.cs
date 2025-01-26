@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void SpawnEnemies(EnemySpawnInfo info)
+    private void SpawnEnemies(EnemySpawnInfo info)
     {
         var existingCount = FindObjectsByType<Enemy>(FindObjectsInactive.Include, FindObjectsSortMode.None)
             .Count(x => x.Info == info && !x.IsDead);
@@ -49,5 +49,24 @@ public class EnemyManager : MonoBehaviour
     public bool EnemyAlive(Func<Enemy, bool> predicate)
     {
         return _enemyList.Exists(x => !x.IsDead && predicate(x));
+    }
+
+    public void EnemyDied(EnemySpawnInfo info)
+    {
+        _enemyList.RemoveAll(x => x.IsDead);
+        SpawnEnemies(info);
+    }
+
+    private void Update()
+    {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            foreach (var enemy in _enemyList.ToList())
+            {
+                enemy.Kill();
+            }
+        }
+#endif
     }
 }

@@ -79,6 +79,13 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
         App.Instance.BubblefishManager.RewardBubblefish(Info.KillReward);
-        App.Instance.EnemyManager.SpawnEnemies(Info);
+        if (!IsBoss)
+            App.Instance.EnemyManager.EnemyDied(Info);
+    }
+
+    public void Kill()
+    {
+        _remainingHealth = 0;
+        DestroyEnemy();
     }
 }
