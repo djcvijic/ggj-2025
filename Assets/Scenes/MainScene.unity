@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740f88b5391245719ca172feb836699f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameSettings: {fileID: 11400000, guid: 478933ddf20ecf84c8436c05aab593ee, type: 2}
+  GameSettings: {fileID: 11400000, guid: 0374f740e34754509a3f2120b21bb38c, type: 2}
   playerPrefab: {fileID: 4734823918294181014, guid: ae81eb1c6b57224418aca69487936811, type: 3}
   <BubblefishManager>k__BackingField: {fileID: 499728655}
   <EnemyManager>k__BackingField: {fileID: 1952846357440479467}
