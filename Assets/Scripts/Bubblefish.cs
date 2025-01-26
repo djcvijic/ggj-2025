@@ -11,6 +11,7 @@ public class Bubblefish : MonoBehaviour
     [SerializeField] private SpriteRotator rotator;
     [SerializeField] private CircleCollider2D collider2d;
     [SerializeField] private BubbleExplosion bubbleExplosion;
+    [SerializeField] private BlinkingEffect blinkingEffect;
 
     private EventsNotifier Notifier => App.Instance.EventsNotifier;
 
@@ -79,5 +80,10 @@ public class Bubblefish : MonoBehaviour
     {
         App.Instance.EventsNotifier.NotifyBubblefishDied(this);
         Destroy(gameObject);
+    }
+
+    public void ToggleBlinking(bool state)
+    {
+        blinkingEffect.ToggleBlinking(state);
     }
 }

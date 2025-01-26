@@ -30,6 +30,14 @@ public class BubblefishSpawner : MonoBehaviour
         App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
         App.Instance.EventsNotifier.PuffednessChanged += OnPuffednessChanged;
         App.Instance.EventsNotifier.PlayerDamaged += DamageFish;
+        App.Instance.EventsNotifier.GraceChanged += OnGraceChanged;
+
+    }
+
+    private void OnGraceChanged(bool state)
+    {
+        foreach (var bubblefish in _bubblefishList)
+            bubblefish.ToggleBlinking(state);
     }
 
     private void Update()
