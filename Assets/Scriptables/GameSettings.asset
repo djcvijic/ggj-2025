@@ -42,6 +42,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  smoothingDuration: 0.5
   acceleration: 350
   maxSpeed: 20
   friction: 4.5
@@ -98,6 +99,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  gracePeriod: 1.5
+  graceBlinkInterval: 0.1
   <SpawnLayers>k__BackingField:
   - <MinY>k__BackingField: 42
     <MaxY>k__BackingField: 64
@@ -128,17 +131,6 @@ MonoBehaviour:
     <RequiredBubblefishToDamage>k__BackingField: 10
     <KillReward>k__BackingField: 2
   - <Count>k__BackingField: 3
-    <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 39749befa96b40049bd5602086fdb074, type: 3}
-    <MinY>k__BackingField: -44
-    <MaxY>k__BackingField: 0
-    <Scale>k__BackingField: 0.8
-    <MoveSpeed>k__BackingField: 0.5
-    <AggroRange>k__BackingField: 20
-    <Damage>k__BackingField: 1
-    <MaxHealth>k__BackingField: 1
-    <RequiredBubblefishToDamage>k__BackingField: 80
-    <KillReward>k__BackingField: 15
-  - <Count>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 3853ddc8bac35b94d8000a1cd0c89425, type: 3}
     <MinY>k__BackingField: -11
     <MaxY>k__BackingField: 11
@@ -149,6 +141,17 @@ MonoBehaviour:
     <MaxHealth>k__BackingField: 1
     <RequiredBubblefishToDamage>k__BackingField: 50
     <KillReward>k__BackingField: 10
+  - <Count>k__BackingField: 3
+    <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 39749befa96b40049bd5602086fdb074, type: 3}
+    <MinY>k__BackingField: -44
+    <MaxY>k__BackingField: 0
+    <Scale>k__BackingField: 0.8
+    <MoveSpeed>k__BackingField: 0.5
+    <AggroRange>k__BackingField: 20
+    <Damage>k__BackingField: 1
+    <MaxHealth>k__BackingField: 1
+    <RequiredBubblefishToDamage>k__BackingField: 80
+    <KillReward>k__BackingField: 15
   - <Count>k__BackingField: 2
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 8aeff66fd8712d24b8fe179c934b40fe, type: 3}
     <MinY>k__BackingField: -44
