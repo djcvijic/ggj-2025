@@ -15,6 +15,8 @@ public class GameSettings : ScriptableObject
     public float minCameraDistance = 2.5f;
     public float maxCameraDistance = 12f;
     public AnimationCurve cameraDistanceCurve;
+
+    public float smoothingDuration = 0.5f;
     
     [Header("Player")]
     public float acceleration = 350f;
