@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4e5683fc4647dbba7403883f3821a5, type: 3}
+  m_Name: Prvi
+  m_EditorClassIdentifier: 
+  initialCameraPosition: {x: 0, y: -20, z: -10}
+  cameraFollowSpeed: 2
+  minCameraOffsetDistance: 2
+  maxCameraOffsetDistance: 5
+  minCameraDistance: 3
+  maxCameraDistance: 14
+  cameraDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  acceleration: 350
+  maxSpeed: 20
+  friction: 4.5
+  minDashSpeed: 2000
+  maxDashSpeed: 3000
+  dashSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dashDuration: 0.4
+  minDashCooldown: 0.5
+  maxDashCooldown: 1.8
+  dashCooldownCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <SpawnLayers>k__BackingField:
+  - <MinY>k__BackingField: 42
+    <MaxY>k__BackingField: 64
+    <SecondsBetweenSpawns>k__BackingField: 1
+  - <MinY>k__BackingField: 22
+    <MaxY>k__BackingField: 42
+    <SecondsBetweenSpawns>k__BackingField: 2
+  - <MinY>k__BackingField: 0
+    <MaxY>k__BackingField: 22
+    <SecondsBetweenSpawns>k__BackingField: 3
+  <FollowSpeed>k__BackingField: 2.3
+  <SecondsPuffedAfterDashEnds>k__BackingField: 1
+  <SwarmRadiusPuffedFactor>k__BackingField: 1.5
+  <MaxX>k__BackingField: 56
+  <PlayerSpawnY>k__BackingField: 50
+  <MaxBubblefishInWorld>k__BackingField: 250
+  <MaxPoppedBubblefish>k__BackingField: 120
+  <EnemySpawns>k__BackingField:
+  - <Count>k__BackingField: 5
+    <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 7f96d96340af4452c991cb7d795e60f1, type: 3}
+    <MinY>k__BackingField: 22
+    <MaxY>k__BackingField: 64
+    <Scale>k__BackingField: 0.5
+    <MoveSpeed>k__BackingField: 0.7
+    <AggroRange>k__BackingField: 20
+    <Damage>k__BackingField: 1
+    <MaxHealth>k__BackingField: 2
+    <RequiredBubblefishToDamage>k__BackingField: 10
+    <KillReward>k__BackingField: 2
+  - <Count>k__BackingField: 3
+    <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 39749befa96b40049bd5602086fdb074, type: 3}
+    <MinY>k__BackingField: -44
+    <MaxY>k__BackingField: 0
+    <Scale>k__BackingField: 0.8
+    <MoveSpeed>k__BackingField: 0.5
+    <AggroRange>k__BackingField: 20
+    <Damage>k__BackingField: 1
+    <MaxHealth>k__BackingField: 1
+    <RequiredBubblefishToDamage>k__BackingField: 80
+    <KillReward>k__BackingField: 15
+  - <Count>k__BackingField: 3
+    <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 3853ddc8bac35b94d8000a1cd0c89425, type: 3}
+    <MinY>k__BackingField: -11
+    <MaxY>k__BackingField: 11
+    <Scale>k__BackingField: 0.9
+    <MoveSpeed>k__BackingField: 3.5
+    <AggroRange>k__BackingField: 25
+    <Damage>k__BackingField: 1
+    <MaxHealth>k__BackingField: 1
+    <RequiredBubblefishToDamage>k__BackingField: 50
+    <KillReward>k__BackingField: 10
+  - <Count>k__BackingField: 2
+    <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 8aeff66fd8712d24b8fe179c934b40fe, type: 3}
+    <MinY>k__BackingField: -44
+    <MaxY>k__BackingField: -22
+    <Scale>k__BackingField: 1
+    <MoveSpeed>k__BackingField: 0.5
+    <AggroRange>k__BackingField: 20
+    <Damage>k__BackingField: 1
+    <MaxHealth>k__BackingField: 1
+    <RequiredBubblefishToDamage>k__BackingField: 80
+    <KillReward>k__BackingField: 15
+  - <Count>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 1bfaebbffe82d0e448c2ea60b71aeb03, type: 3}
+    <MinY>k__BackingField: -64
+    <MaxY>k__BackingField: -44
+    <Scale>k__BackingField: 1.15
+    <MoveSpeed>k__BackingField: 0.5
+    <AggroRange>k__BackingField: 20
+    <Damage>k__BackingField: 1
+    <MaxHealth>k__BackingField: 1
+    <RequiredBubblefishToDamage>k__BackingField: 20
+    <KillReward>k__BackingField: 1
