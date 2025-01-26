@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     private PlayerMovement playerMovement;
     private PlayerGrace playerGrace;
+    private BlinkingEffect blinkingEffect;
     
     private SpriteRenderer _spriteRenderer;
     
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         playerMovement = new PlayerMovement(this);
         playerGrace = gameObject.AddComponent<PlayerGrace>();
+        blinkingEffect = gameObject.AddComponent<BlinkingEffect>();
     }
 
     private void Start()
@@ -61,11 +63,15 @@ public class Player : MonoBehaviour
 
     private void OnGraceChange(bool isGraced)
     {
+        blinkingEffect.ToggleBlinking(isGraced);
+
         if (isGraced == false)
         {
             playerGrace.GetComponent<CircleCollider2D>().enabled = false;
             playerGrace.GetComponent<CircleCollider2D>().enabled = true;
         }
+        
+
     }
 
     public void TriggerGracePeriod() => playerGrace.TriggerGracePeriod();
