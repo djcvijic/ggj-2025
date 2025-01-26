@@ -185,13 +185,13 @@ MonoBehaviour:
     <MinY>k__BackingField: -44
     <MaxY>k__BackingField: 11
     <Scale>k__BackingField: 0.8
-    <MoveSpeed>k__BackingField: 1
+    <MoveSpeed>k__BackingField: 10
     <AggroRange>k__BackingField: 20
     <Damage>k__BackingField: 20
     <MaxHealth>k__BackingField: 3
     <RequiredBubblefishToDamage>k__BackingField: 50
     <KillReward>k__BackingField: 10
-    <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
+    <Behaviour>k__BackingField: {fileID: 11400000, guid: 145f0c5a3b5a93d43a879b2a643593d5, type: 2}
   - <Count>k__BackingField: 2
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 8aeff66fd8712d24b8fe179c934b40fe, type: 3}
     <MinY>k__BackingField: -44
