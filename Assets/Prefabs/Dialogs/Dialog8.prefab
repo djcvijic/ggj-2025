@@ -90,3 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Condition>k__BackingField: 2
   <Index>k__BackingField: 8
+  <PlayOnShow>k__BackingField: {fileID: 11400000, guid: 997245d1e0b9e4f5698c2690d45c2d8e, type: 2}

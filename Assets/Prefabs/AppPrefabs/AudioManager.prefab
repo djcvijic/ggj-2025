@@ -51,3 +51,4 @@ MonoBehaviour:
   unlockNewDepth: {fileID: 11400000, guid: 15342347e75ea4367b6b265b3a83acc5, type: 2}
   enemyKill: {fileID: 11400000, guid: 3670185a47a1e4e32bb917dece37fdef, type: 2}
   bossKill: {fileID: 11400000, guid: 5769a40a69837493598e90024dc74b07, type: 2}
+  whistle: {fileID: 11400000, guid: 997245d1e0b9e4f5698c2690d45c2d8e, type: 2}

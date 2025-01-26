@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: <Condition>k__BackingField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 917624920753087003, guid: 93960ab3bb8944f27bab26800527e6c1, type: 3}
+      propertyPath: <PlayOnShow>k__BackingField
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1925154029590432487, guid: 93960ab3bb8944f27bab26800527e6c1, type: 3}
       propertyPath: m_Name
       value: Dialog-1
