@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerGrace : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class PlayerGrace : MonoBehaviour
     public bool IsNotGraced => _state == GraceState.NotGraced;
     
     public float GraceDuration => App.Instance.GameSettings.gracePeriod;
-    public float GraceBlinkInterval => App.Instance.GameSettings.graceBlinkInterval;
 
     private void Update()
     {
