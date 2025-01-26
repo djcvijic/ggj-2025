@@ -9,9 +9,12 @@ public class App : MonoSingleton<App>
     [SerializeField] private Player playerPrefab;
     [field: SerializeField] public BubblefishManager BubblefishManager { get; private set; }
     [field: SerializeField] public EnemyManager EnemyManager { get; private set; }
+    [field: SerializeField] public DialogSystem DialogSystem { get; private set; }
     [SerializeField] private AppCanvas appCanvas;
 
     public Player Player { get; private set; }
+
+    public bool ShouldPauseAllMovement => DialogSystem.IsMessageShown;
 
     protected override void Awake()
     {

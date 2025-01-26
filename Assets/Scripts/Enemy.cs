@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     public bool IsDead => _remainingHealth <= 0;
     private int BubblefishCollected => App.Instance.BubblefishManager.BubblefishPopped;
-    private bool _isBoss;
+    public bool IsBoss { get; private set; }
 
     private EnemyBehaviour _behaviour;
 
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         transform.localScale *= info.Scale;
         _behaviour = Instantiate(Info.Behaviour);
         _behaviour.Initialize(this, playerPositionGetter);
-        _isBoss = _behaviour is BossBehaviour;
+        IsBoss = _behaviour is BossBehaviour;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -60,6 +60,9 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (App.Instance.ShouldPauseAllMovement)
+            return;
+
         _behaviour.Execute(Time.fixedDeltaTime);
     }
 
@@ -67,10 +70,5 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
         App.Instance.BubblefishManager.RewardBubblefish(Info.KillReward);
-
-        if (_isBoss)
-        {
-            App.Instance.GameWin.TriggerWinGame();
-        }
     }
 }
