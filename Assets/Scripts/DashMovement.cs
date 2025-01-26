@@ -25,7 +25,15 @@ public class DashMovement
         }
     }
 
-    private float DashDuration => App.Instance.GameSettings.dashDuration;
+    private float DashDuration
+    {
+        get
+        {
+            float normalizedPercentage = Mathf.Clamp01(App.Instance.BubblefishManager.BubblefishPoppedPercentage / 100f);
+            float curveValue = App.Instance.GameSettings.dashDurationCurve.Evaluate(normalizedPercentage);
+            return Mathf.Lerp(App.Instance.GameSettings.minDashDuration, App.Instance.GameSettings.maxDashDuration, curveValue);
+        }
+    }
 
     private float _dashTimer;
     private float _cooldownTimer;
