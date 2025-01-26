@@ -35,7 +35,7 @@ public class DialogSystem : MonoBehaviour
             .ToList();
         _currentIndex = _allMessages.Min(x => x.Index);
     }
-
+    
     private void Update()
     {
         if (IsMessageShown)
@@ -52,6 +52,7 @@ public class DialogSystem : MonoBehaviour
         }
     }
 
+    
     private void HideCurrentMessageAndAdvance()
     {
         CurrentMessage.Hide();
@@ -61,8 +62,13 @@ public class DialogSystem : MonoBehaviour
         }
         else
         {
-            App.Instance.GameWin.TriggerWinGame();
+            Invoke(nameof(TriggerGameOver), 2f);
         }
+    }
+
+    private void TriggerGameOver()
+    {
+        App.Instance.GameWin.TriggerWinGame();
     }
 
     private bool IsConditionMet(DialogCondition condition)
