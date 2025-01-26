@@ -142,7 +142,7 @@ MonoBehaviour:
     <MaxHealth>k__BackingField: 1
     <RequiredBubblefishToDamage>k__BackingField: 25
     <KillReward>k__BackingField: 5
-    <Behaviour>k__BackingField: {fileID: 11400000, guid: c56405b302cc34581932b7b39d8911b2, type: 2}
+    <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
   - <Count>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 3853ddc8bac35b94d8000a1cd0c89425, type: 3}
     <MinY>k__BackingField: -11
@@ -154,7 +154,7 @@ MonoBehaviour:
     <MaxHealth>k__BackingField: 1
     <RequiredBubblefishToDamage>k__BackingField: 50
     <KillReward>k__BackingField: 10
-    <Behaviour>k__BackingField: {fileID: 11400000, guid: d5da10135a119462d996b8333ec3faf8, type: 2}
+    <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
   - <Count>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 39749befa96b40049bd5602086fdb074, type: 3}
     <MinY>k__BackingField: -44
@@ -166,7 +166,7 @@ MonoBehaviour:
     <MaxHealth>k__BackingField: 1
     <RequiredBubblefishToDamage>k__BackingField: 80
     <KillReward>k__BackingField: 15
-    <Behaviour>k__BackingField: {fileID: 11400000, guid: 74a3653b6abbd404dac5e38c34f0afeb, type: 2}
+    <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
   - <Count>k__BackingField: 2
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 8aeff66fd8712d24b8fe179c934b40fe, type: 3}
     <MinY>k__BackingField: -44
@@ -178,7 +178,7 @@ MonoBehaviour:
     <MaxHealth>k__BackingField: 1
     <RequiredBubblefishToDamage>k__BackingField: 80
     <KillReward>k__BackingField: 15
-    <Behaviour>k__BackingField: {fileID: 11400000, guid: 42388ca54648746519f4f79e9f537b4f, type: 2}
+    <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
   - <Count>k__BackingField: 1
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 1bfaebbffe82d0e448c2ea60b71aeb03, type: 3}
     <MinY>k__BackingField: -64
@@ -190,4 +190,4 @@ MonoBehaviour:
     <MaxHealth>k__BackingField: 1
     <RequiredBubblefishToDamage>k__BackingField: 20
     <KillReward>k__BackingField: 1
-    <Behaviour>k__BackingField: {fileID: 11400000, guid: 9ee941d5d407747d0b420d8fadfcd8c8, type: 2}
+    <Behaviour>k__BackingField: {fileID: 11400000, guid: 18d7750357688434fb46d5ffa35dee86, type: 2}

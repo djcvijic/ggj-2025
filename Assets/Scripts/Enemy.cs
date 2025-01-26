@@ -21,9 +21,9 @@ public class Enemy : MonoBehaviour
         Info = info;
         _remainingHealth = info.MaxHealth;
         transform.localScale *= info.Scale;
-        _isBoss = GetComponent<Boss>() != null;
         _behaviour = Instantiate(Info.Behaviour);
         _behaviour.Initialize(this, playerPositionGetter);
+        _isBoss = _behaviour is BossBehaviour;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
