@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740f88b5391245719ca172feb836699f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameSettings: {fileID: 11400000, guid: 5df4881a73d09a040a9a0fa7d2ee9f83, type: 2}
+  GameSettings: {fileID: 11400000, guid: 478933ddf20ecf84c8436c05aab593ee, type: 2}
   playerPrefab: {fileID: 4734823918294181014, guid: ae81eb1c6b57224418aca69487936811, type: 3}
   <BubblefishManager>k__BackingField: {fileID: 499728655}
   <EnemyManager>k__BackingField: {fileID: 1952846357440479467}
@@ -571,6 +571,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1180203217197052131, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2729678145281051622, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
       propertyPath: m_Pivot.x
       value: 0

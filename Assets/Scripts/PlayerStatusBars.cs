@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-public class PlayerScoreHolder : MonoBehaviour
+public class PlayerStatusBars : MonoBehaviour
 {
     [SerializeField] private TMP_Text bubblefishNumberText;
 

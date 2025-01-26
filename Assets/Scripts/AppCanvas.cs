@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AppCanvas : MonoBehaviour
 {
-    public PlayerScoreHolder playerScoreHolder;
+    public PlayerStatusBars playerStatusBars;
 
     public void Initialize()
     {
-        playerScoreHolder.Initialize();
+        playerStatusBars.Initialize();
     }
 }

@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beefb342a079474e8ef2bad395e753eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScoreHolder: {fileID: 4759532121576369026}
+  playerStatusBars: {fileID: 4759532121576369026}
 --- !u!1001 &3964920650635710270
 PrefabInstance:
   m_ObjectHideFlags: 0
