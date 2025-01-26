@@ -37,7 +37,8 @@ public class BubblefishSpawner : MonoBehaviour
     private void OnGraceChanged(bool state)
     {
         foreach (var bubblefish in _bubblefishList)
-            bubblefish.ToggleBlinking(state);
+            if (bubblefish.IsPopped)
+                bubblefish.ToggleBlinking(state);
     }
 
     private void Update()
