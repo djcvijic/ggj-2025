@@ -26,7 +26,6 @@ public class DialogSystem : MonoBehaviour
     private void NewDepthUnlocked()
     {
         _newDepthUnlocked = true;
-        App.Instance.AudioManager.UnlockNewDepth();
     }
 
     public void Initialize()
