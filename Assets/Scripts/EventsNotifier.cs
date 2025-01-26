@@ -9,7 +9,7 @@ public class EventsNotifier
 
     public event Action<int> PlayerDamaged;
 
-    public event Action PassedFirstFishSizeRequirement;
+    public event Action PassedFishSizeRequirement;
 
     public void NotifyBubblefishPopped(Bubblefish bubblefish) 
         => BubblefishPopped?.Invoke(bubblefish);
@@ -23,6 +23,6 @@ public class EventsNotifier
     public void NotifyPlayerDamaged(int damage)
         => PlayerDamaged?.Invoke(damage);
     
-    public void NotifyFirstFishSizeRequirement()
-        => PassedFirstFishSizeRequirement?.Invoke();
+    public void NotifyPassedFishSizeRequirement()
+        => PassedFishSizeRequirement?.Invoke();
 }

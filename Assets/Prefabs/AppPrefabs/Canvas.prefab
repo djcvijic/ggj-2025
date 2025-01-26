@@ -235,7 +235,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1925154029590432487, guid: 93960ab3bb8944f27bab26800527e6c1, type: 3}
       propertyPath: m_Name
-      value: Dialog7
+      value: Dialog8
       objectReference: {fileID: 0}
     - target: {fileID: 1925154029590432487, guid: 93960ab3bb8944f27bab26800527e6c1, type: 3}
       propertyPath: m_IsActive
@@ -345,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165639433831217805, guid: b49da25c4319046e0be9459e78fb638c, type: 3}
       propertyPath: m_Name
-      value: Dialog6
+      value: Dialog7
       objectReference: {fileID: 0}
     - target: {fileID: 4165639433831217805, guid: b49da25c4319046e0be9459e78fb638c, type: 3}
       propertyPath: m_IsActive

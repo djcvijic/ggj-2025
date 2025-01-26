@@ -2,5 +2,6 @@ public enum DialogCondition
 {
     None,
     FishPopped,
-    BossDefeated
+    BossDefeated,
+    NewDepthUnlocked,
 }

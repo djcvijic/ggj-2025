@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using Random = System.Random;
 
 namespace Audio
 {
@@ -14,6 +14,8 @@ namespace Audio
 		private readonly List<AudioSource> musicSources = new();
 
 		private readonly List<AudioSource> soundSources = new();
+
+		private readonly Random random = new();
 
 		private bool? musicEnabled;
     
@@ -128,10 +130,10 @@ namespace Audio
 			return source;
 		}
 
-		private static void SetupAndPlayClip(AudioClipSettings settings, AudioSource source)
+		private void SetupAndPlayClip(AudioClipSettings settings, AudioSource source)
 		{
 			source.loop = settings.AudioType == AudioType.Music;
-			source.clip = settings.Variants[Random.Range(0, settings.Variants.Length)];
+			source.clip = settings.Variants[random.Next(0, settings.Variants.Length)];
 			source.volume = settings.DefaultVolume;
 			source.Play();
 		}
