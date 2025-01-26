@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 [CreateAssetMenu]
 public class PatrolBehaviour : EnemyBehaviour
@@ -9,6 +10,15 @@ public class PatrolBehaviour : EnemyBehaviour
     public bool mirrorDirection;
     private bool movingRight = true;
 
+    public override void Initialize(Enemy enemy)
+    {
+        var spriteRotator = enemy.AddComponent<SpriteRotator>();
+
+        var left = mirrorDirection ? Vector3.left : Vector3.right;
+        var right = mirrorDirection ? Vector3.right : Vector3.left;
+        spriteRotator.Initialize(() => movingRight? right : left);
+    }
+    
     public override void Execute(float deltaTime)
     {
         if (Enemy.IsDead)

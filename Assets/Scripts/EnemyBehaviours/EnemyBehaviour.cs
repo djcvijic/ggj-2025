@@ -10,7 +10,13 @@ public abstract class EnemyBehaviour : ScriptableObject
     {
         Enemy = enemy;
         PlayerPositionGetter = playerPositionGetter;
+        Initialize(enemy);
     }
 
     public abstract void Execute(float deltaTime);
+
+    public virtual void Initialize(Enemy enemy)
+    {
+        
+    }
 }
