@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public bool IsBoss { get; private set; }
 
     private EnemyBehaviour _behaviour;
+    private HitRegistrationEffect _hitRegistrationEffect;
 
     public void Initialize(Func<Vector2> playerPositionGetter, EnemySpawnInfo info)
     {
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
         _behaviour = Instantiate(Info.Behaviour);
         _behaviour.Initialize(this, playerPositionGetter);
         IsBoss = _behaviour is BossBehaviour;
+        _hitRegistrationEffect = gameObject.AddComponent<HitRegistrationEffect>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
         if (BubblefishCollected >= Info.RequiredBubblefishToDamage && player.IsPuffed)
         {
             _remainingHealth--;
+            _hitRegistrationEffect.ToggleColor();
         }
         else
         {
