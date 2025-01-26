@@ -23,4 +23,9 @@ public class BubblefishManager : MonoBehaviour
     {
         bubblefishSpawner.PopFish(number);
     }
+    
+    public void DamageBubblefish(int number)
+    {
+        bubblefishSpawner.DamageFish(number);
+    }
 }

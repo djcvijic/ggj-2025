@@ -110,7 +110,7 @@ public class BubblefishSpawner : MonoBehaviour
         }
     }
 
-    private void DamageFish(int damage)
+    public void DamageFish(int damage)
     {
         var fishToKill = _bubblefishList.Take(damage).Where(fish => fish.IsPopped).ToList();
 

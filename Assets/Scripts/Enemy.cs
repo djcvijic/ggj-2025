@@ -30,20 +30,20 @@ public class Enemy : MonoBehaviour
             return;
 
         var player = other.GetComponent<Player>();
-        if (player != null && player.IsPuffed)
-            CollideWithPlayer();
+        if (player != null)
+            CollideWithPlayer(player);
     }
 
-    private void CollideWithPlayer()
+    private void CollideWithPlayer(Player player)
     {
         Debug.Log("Collided with enemy: " + gameObject.name);
-        if (BubblefishCollected >= _info.RequiredBubblefishToDamage)
+        if (BubblefishCollected >= _info.RequiredBubblefishToDamage && player.IsPuffed)
         {
             _remainingHealth--;
         }
         else
         {
-            // TODO - Destroy a certain number of bubble fishes the player collected - enemy damage can be defined in game settings
+            App.Instance.BubblefishManager.DamageBubblefish(_info.Damage);
         }
 
         if (_remainingHealth <= 0)
