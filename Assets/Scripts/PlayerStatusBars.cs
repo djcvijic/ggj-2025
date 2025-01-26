@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ public class PlayerStatusBars : MonoBehaviour
     
     [SerializeField] private DepthIndicator depthIndicator;
 
-    private bool _notifiedOnce = false;
+    private int _previousBubblefishPopped;
     
     private int TotalBubblefishesPopped => App.Instance.BubblefishManager.BubblefishPopped;
 
@@ -30,12 +31,15 @@ public class PlayerStatusBars : MonoBehaviour
     {
         bubblefishNumberText.text = TotalBubblefishesPopped.ToString();
 
-        if (TotalBubblefishesPopped >= 10 && !_notifiedOnce)
+        if (App.Instance.GameSettings.EnemySpawns
+            .Select(x => x.RequiredBubblefishToDamage)
+            .Any(x => TotalBubblefishesPopped >= x && x > _previousBubblefishPopped))
         {
-            _notifiedOnce = true;
-            Debug.Log("PASSED FIRST THRESHOLD");
+            Debug.Log("PASSED THRESHOLD");
             App.Instance.EventsNotifier.NotifyPassedFishSizeRequirement();
         }
+
+        _previousBubblefishPopped = TotalBubblefishesPopped;
     }
 
     private void Update()

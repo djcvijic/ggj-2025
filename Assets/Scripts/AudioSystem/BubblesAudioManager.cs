@@ -14,6 +14,9 @@ public class BubblesAudioManager : AudioManager
     [SerializeField] private AudioClipSettings unlockNewDepth;
     [SerializeField] private AudioClipSettings enemyKill;
     [SerializeField] private AudioClipSettings bossKill;
+    [SerializeField] private AudioClipSettings damageEnemy;
+    [SerializeField] private AudioClipSettings damageTaken;
+    [SerializeField] private AudioClipSettings whistle;
 
     private bool _musicPlaying;
 
@@ -56,4 +59,8 @@ public class BubblesAudioManager : AudioManager
     public void EnemyKill() => PlayAudio(enemyKill);
 
     public void BossKill() => PlayAudio(bossKill);
+
+    public void DamageEnemy() => PlayAudio(damageEnemy);
+
+    public void DamageTaken() => PlayAudio(damageTaken);
 }
