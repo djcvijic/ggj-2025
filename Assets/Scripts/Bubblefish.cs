@@ -74,4 +74,10 @@ public class Bubblefish : MonoBehaviour
             ? _initialColliderRadius * App.Instance.GameSettings.SwarmRadiusPuffedFactor
             : _initialColliderRadius;
     }
+
+    public void Kill()
+    {
+        App.Instance.EventsNotifier.NotifyBubblefishDied(this);
+        Destroy(gameObject);
+    }
 }

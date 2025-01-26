@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740f88b5391245719ca172feb836699f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameSettings: {fileID: 11400000, guid: 5df4881a73d09a040a9a0fa7d2ee9f83, type: 2}
+  GameSettings: {fileID: 11400000, guid: 478933ddf20ecf84c8436c05aab593ee, type: 2}
   playerPrefab: {fileID: 4734823918294181014, guid: ae81eb1c6b57224418aca69487936811, type: 3}
   <BubblefishManager>k__BackingField: {fileID: 499728655}
   <EnemyManager>k__BackingField: {fileID: 1952846357440479467}
@@ -335,6 +335,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1213866663 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5446493048051792044, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
+  m_PrefabInstance: {fileID: 7145549785769545546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fef770c81941e5acf83c6f6cf5d71d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1432262126 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 189667358292726341, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
@@ -658,6 +669,22 @@ PrefabInstance:
     - target: {fileID: 3549942480156035571, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759532121576369026, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
+      propertyPath: depthIndicator
+      value: 
+      objectReference: {fileID: 1213866663}
+    - target: {fileID: 8195852597708815711, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195852597708815711, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195852597708815711, guid: 006ddd654c5a081458eb81e53c587d86, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

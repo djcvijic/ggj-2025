@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     private Transform _cameraTransform;
     private Rigidbody2D _playerRigidbody;
     private Camera _camera;
+    private Coroutine _cameraSizeSmoothingCoroutine;
 
     private float CameraDistance
     {
@@ -17,11 +18,12 @@ public class CameraFollow : MonoBehaviour
             return Mathf.Lerp(App.Instance.GameSettings.minCameraDistance, App.Instance.GameSettings.maxCameraDistance, curveValue);
         }
     }
+
     public static Vector3 InitialCameraPosition => App.Instance.GameSettings.initialCameraPosition;
     public float FollowSpeed => App.Instance.GameSettings.cameraFollowSpeed;
-    public float MaxPlayerSpeed => App.Instance.GameSettings.maxSpeed; 
-    public float MinOffset => App.Instance.GameSettings.minCameraOffsetDistance; // Offset when stationary
-    public float MaxOffset => App.Instance.GameSettings.maxCameraOffsetDistance; // Offset at max speed
+    public float MaxPlayerSpeed => App.Instance.GameSettings.maxSpeed;
+    public float MinOffset => App.Instance.GameSettings.minCameraOffsetDistance;
+    public float MaxOffset => App.Instance.GameSettings.maxCameraOffsetDistance;
 
     public CameraFollow Initialize(Transform playerTransform, Rigidbody2D playerRigidbody)
     {
@@ -34,6 +36,7 @@ public class CameraFollow : MonoBehaviour
         _camera.transform.position = InitialCameraPosition;
 
         App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
+        App.Instance.EventsNotifier.BubblefishDied += OnBubblefishDied;
 
         return this;
     }
@@ -57,14 +60,44 @@ public class CameraFollow : MonoBehaviour
         }
 
         Vector3 targetPosition = _playerTransform.position + offset;
-        targetPosition.z = _cameraTransform.position.z; // Preserve Z-axis
+        targetPosition.z = _cameraTransform.position.z;
 
         _cameraTransform.position = Vector3.Lerp(_cameraTransform.position, targetPosition, FollowSpeed * Time.deltaTime);
     }
 
     private void OnBubblefishPopped(Bubblefish bubblefish)
     {
-        _camera.orthographicSize = CameraDistance;
+        SmoothCameraDistanceChange();
+    }
+
+    private void OnBubblefishDied(Bubblefish bubblefish)
+    {
+        SmoothCameraDistanceChange();
+    }
+
+    private void SmoothCameraDistanceChange()
+    {
+        if (_cameraSizeSmoothingCoroutine != null)
+        {
+            StopCoroutine(_cameraSizeSmoothingCoroutine);
+        }
+
+        _cameraSizeSmoothingCoroutine = StartCoroutine(SmoothCameraSize(_camera.orthographicSize, CameraDistance, 0.5f));
+    }
+
+    private System.Collections.IEnumerator SmoothCameraSize(float from, float to, float duration)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            _camera.orthographicSize = Mathf.Lerp(from, to, t);
+            yield return null;
+        }
+
+        _camera.orthographicSize = to;
     }
 
     public static CameraFollow InstantiateCameraFollowObj()

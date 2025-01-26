@@ -29,11 +29,12 @@ public class BubblefishSpawner : MonoBehaviour
 
         App.Instance.EventsNotifier.BubblefishPopped += OnBubblefishPopped;
         App.Instance.EventsNotifier.PuffednessChanged += OnPuffednessChanged;
+        App.Instance.EventsNotifier.PlayerDamaged += DamageFish;
     }
 
     private void Update()
     {
-        DebugPop10Fish();
+        DebugKeys();
     }
 
     private void RegisterExistingChildren()
@@ -109,6 +110,26 @@ public class BubblefishSpawner : MonoBehaviour
         }
     }
 
+    private void DamageFish(int damage)
+    {
+        var fishToKill = _bubblefishList.Take(damage).Where(fish => fish.IsPopped).ToList();
+
+        foreach (var bubblefish in fishToKill)
+        {
+            _bubblefishList.Remove(bubblefish);
+            bubblefish.Kill();
+        }
+    }
+
+
+    private void DebugKeys()
+    {
+#if UNITY_EDITOR
+
+        DebugPop10Fish();
+        DebugKill10Fish();
+#endif
+    }
     private void DebugPop10Fish()
     {
         if (!Input.GetKeyDown(KeyCode.F))
@@ -116,4 +137,12 @@ public class BubblefishSpawner : MonoBehaviour
 
         PopFish(10);
     }
+    private void DebugKill10Fish()
+    {
+        if (!Input.GetKeyDown(KeyCode.G))
+            return;
+
+        DamageFish(10);
+    }
+  
 }

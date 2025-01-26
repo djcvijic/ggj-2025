@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     private bool IsDead => _remainingHealth <= 0;
     private int BubblefishCollected => App.Instance.BubblefishManager.BubblefishPopped;
+    private bool _isBoss;
     
     public void Initialize(Func<Vector2> playerPositionGetter, EnemySpawnInfo info)
     {
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
         _info = info;
         _remainingHealth = info.MaxHealth;
         transform.localScale *= info.Scale;
+        _isBoss = GetComponent<Boss>() != null;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -79,5 +81,10 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
         App.Instance.BubblefishManager.RewardBubblefish(_info.KillReward);
+
+        if (_isBoss)
+        {
+            App.Instance.GameWin.TriggerWinGame();
+        }
     }
 }
