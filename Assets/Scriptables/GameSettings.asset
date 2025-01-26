@@ -16,7 +16,7 @@ MonoBehaviour:
   cameraFollowSpeed: 2
   minCameraOffsetDistance: 2
   maxCameraOffsetDistance: 5
-  minCameraDistance: 3
+  minCameraDistance: 3.5
   maxCameraDistance: 14
   cameraDistanceCurve:
     serializedVersion: 2
@@ -46,8 +46,8 @@ MonoBehaviour:
   acceleration: 350
   maxSpeed: 20
   friction: 4.5
-  minDashSpeed: 3000
-  maxDashSpeed: 5000
+  minDashSpeed: 2000
+  maxDashSpeed: 3000
   dashSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -72,7 +72,32 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  dashDuration: 0.1
+  minDashDuration: 0.08
+  maxDashDuration: 0.4
+  dashDurationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   minDashCooldown: 0.5
   maxDashCooldown: 1.8
   dashCooldownCurve:
@@ -121,7 +146,7 @@ MonoBehaviour:
   <EnemySpawns>k__BackingField:
   - <Count>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 7f96d96340af4452c991cb7d795e60f1, type: 3}
-    <MinY>k__BackingField: 22
+    <MinY>k__BackingField: 33
     <MaxY>k__BackingField: 64
     <Scale>k__BackingField: 0.5
     <MoveSpeed>k__BackingField: 0.7
@@ -133,7 +158,7 @@ MonoBehaviour:
     <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
   - <Count>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 6fcf5ea589d3b49b98214593e5b20e32, type: 3}
-    <MinY>k__BackingField: 0
+    <MinY>k__BackingField: 11
     <MaxY>k__BackingField: 33
     <Scale>k__BackingField: 0.5
     <MoveSpeed>k__BackingField: 2
@@ -145,7 +170,7 @@ MonoBehaviour:
     <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
   - <Count>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 3853ddc8bac35b94d8000a1cd0c89425, type: 3}
-    <MinY>k__BackingField: -11
+    <MinY>k__BackingField: -18
     <MaxY>k__BackingField: 11
     <Scale>k__BackingField: 0.9
     <MoveSpeed>k__BackingField: 3.5
@@ -158,13 +183,13 @@ MonoBehaviour:
   - <Count>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 39749befa96b40049bd5602086fdb074, type: 3}
     <MinY>k__BackingField: -44
-    <MaxY>k__BackingField: 0
+    <MaxY>k__BackingField: 11
     <Scale>k__BackingField: 0.8
     <MoveSpeed>k__BackingField: 1
     <AggroRange>k__BackingField: 20
     <Damage>k__BackingField: 20
     <MaxHealth>k__BackingField: 2
-    <RequiredBubblefishToDamage>k__BackingField: 80
+    <RequiredBubblefishToDamage>k__BackingField: 50
     <KillReward>k__BackingField: 15
     <Behaviour>k__BackingField: {fileID: 11400000, guid: 6f5fa06868197475391f0bad8337ae63, type: 2}
   - <Count>k__BackingField: 2
