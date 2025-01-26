@@ -73,7 +73,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   dashDuration: 0.1
-  minDashCooldown: 0.4
+  minDashCooldown: 0.5
   maxDashCooldown: 1.8
   dashCooldownCurve:
     serializedVersion: 2
@@ -134,10 +134,10 @@ MonoBehaviour:
   - <Count>k__BackingField: 3
     <Prefab>k__BackingField: {fileID: 8758591526866471735, guid: 6fcf5ea589d3b49b98214593e5b20e32, type: 3}
     <MinY>k__BackingField: 0
-    <MaxY>k__BackingField: 44
+    <MaxY>k__BackingField: 33
     <Scale>k__BackingField: 0.5
     <MoveSpeed>k__BackingField: 2
-    <AggroRange>k__BackingField: 20
+    <AggroRange>k__BackingField: 15
     <Damage>k__BackingField: 5
     <MaxHealth>k__BackingField: 1
     <RequiredBubblefishToDamage>k__BackingField: 25
@@ -186,7 +186,7 @@ MonoBehaviour:
     <Scale>k__BackingField: 1.15
     <MoveSpeed>k__BackingField: 0.5
     <AggroRange>k__BackingField: 20
-    <Damage>k__BackingField: 1
+    <Damage>k__BackingField: 30
     <MaxHealth>k__BackingField: 5
     <RequiredBubblefishToDamage>k__BackingField: 100
     <KillReward>k__BackingField: 1
