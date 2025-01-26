@@ -12,11 +12,12 @@ public class DialogSystem : MonoBehaviour
 
     public bool IsMessageShown => CurrentMessage != null && CurrentMessage.IsShown;
 
-    private void Awake()
+    public void Initialize()
     {
         _allMessages = FindObjectsByType<DialogMessage>(FindObjectsInactive.Include, FindObjectsSortMode.None)
             .OrderBy(x => x.Index)
             .ToList();
+        _currentIndex = _allMessages.Min(x => x.Index);
     }
 
     private void Update()
@@ -36,11 +37,12 @@ public class DialogSystem : MonoBehaviour
     private void HideCurrentMessageAndAdvance()
     {
         CurrentMessage.Hide();
-        _currentIndex++;
-        if (_currentIndex > _allMessages.Max(x => x.Index))
+        if (!_allMessages.Any(x => x.Index > _currentIndex))
         {
             App.Instance.GameWin.TriggerWinGame();
         }
+
+        _currentIndex = _allMessages.First(x => x.Index > _currentIndex).Index;
     }
 
     private static bool IsConditionMet(DialogCondition condition)
@@ -49,7 +51,7 @@ public class DialogSystem : MonoBehaviour
         {
             DialogCondition.None => true,
             DialogCondition.FishPopped => App.Instance.BubblefishManager.BubblefishPopped > 0,
-            DialogCondition.BossDefeated => App.Instance.EnemyManager.EnemyAlive(x => x.IsBoss),
+            DialogCondition.BossDefeated => !App.Instance.EnemyManager.EnemyAlive(x => x.IsBoss),
             _ => throw new ArgumentOutOfRangeException(nameof(condition), condition, null)
         };
     }

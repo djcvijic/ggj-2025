@@ -29,6 +29,6 @@ public class App : MonoSingleton<App>
         CameraFollow.InstantiateCameraFollowObj().Initialize(Player.transform, Player.GetComponent<Rigidbody2D>());
         BubblefishManager.Initialize(Player);
         EnemyManager.Initialize(() => Player.transform.position);
-        
+        DialogSystem.Initialize();
     }
 }
