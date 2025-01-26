@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     
     private float _puffSecondsRemaining;
     private float _gracedSecondsRemaining;
+    private CircleCollider2D _circleCollider2D;
 
     private bool IsDashing => playerMovement is { IsDashing: true };
     public bool IsPuffed => IsDashing || _puffSecondsRemaining > 0;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        _circleCollider2D = GetComponent<CircleCollider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         playerMovement = new PlayerMovement(this);
         playerGrace = gameObject.AddComponent<PlayerGrace>();
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour
         {
             _spriteRenderer.sprite = defaultSprite;
             App.Instance.EventsNotifier.NotifyPuffednessChanged(false);
+            ResetColliders();
         }
     }
 
@@ -70,11 +73,14 @@ public class Player : MonoBehaviour
 
         if (isGraced == false)
         {
-            playerGrace.GetComponent<CircleCollider2D>().enabled = false;
-            playerGrace.GetComponent<CircleCollider2D>().enabled = true;
+            ResetColliders();
         }
-        
+    }
 
+    private void ResetColliders()
+    {
+        _circleCollider2D.enabled = false;
+        _circleCollider2D.enabled = true;
     }
 
     public void TriggerGracePeriod() => playerGrace.TriggerGracePeriod();
